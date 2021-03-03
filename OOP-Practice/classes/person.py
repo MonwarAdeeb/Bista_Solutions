@@ -11,6 +11,7 @@ class Person():
     def get_summary(self):
         day = t.time_now.strftime("%A")
         full_name = self.first_name + ' ' + self.last_name
+        
         return f"Today is {day} \
             \n{t.time_now.strftime('%B %d, %Y')} \
             \n{full_name}'s age is {self.age}"

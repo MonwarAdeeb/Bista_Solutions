@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_books_logger_tree" model="ir.ui.view">
+        <field name="name">books.logger.from</field>
+        <field name="model">books.logger</field>
+        <field name="arch" type="xml">
+            <tree string="Books List">
+                <field name="title"/>
+                <field name="author"/>
+                <field name="price"/>
+                <!-- <field name="photo" widget="image" class="oe_avatar"/> -->
+                <field name="language"/>
+                <field name="genre"/>
+                <field name="date_of_purchase"/>
+                <field name="pages"/>
+                <field name="details"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_books_logger_form" model="ir.ui.view">
+        <field name="name">books.logger.from</field>
+        <field name="model">books.logger</field>
+        <field name="arch" type="xml">
+            <form string="Book Details">
+                <sheet>
+                    <group>
+                        <field name="photo" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="title"/>
+                            <field name="author"/>
+                            <field name="price"/>                            
+                        </group>
+
+                        <separator/>
+                        
+                        <group>    
+                            <field name="language"/>
+                            <field name="genre"/>
+                            <field name="pages"/>
+                            <field name="date_of_purchase"/>
+                            <newline/>
+                            <field name="details"/>
+                        </group>  
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_books_logger" model="ir.actions.act_window">
+        <field name="name">Books Logger</field>
+        <field name="res_model">books.logger</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_books_logger" action="action_books_logger" name='Books Logger'/>
+</odoo>

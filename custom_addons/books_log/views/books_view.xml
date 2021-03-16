@@ -29,7 +29,7 @@
                         <field name="photo" widget="image" class="oe_avatar"/>
                         <group>
                             <field name="title"/>
-                            <field name="author"/>
+                            <field name="author" widget="many2many_tags"/>
                             <field name="price"/>                            
                         </group>
 
@@ -50,11 +50,15 @@
     </record>
 
 
+
     <record id="action_books_logger" model="ir.actions.act_window">
-        <field name="name">Books Logger</field>
+        <field name="name">Books</field>
         <field name="res_model">books.logger</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_books_logger" action="action_books_logger" name='Books Logger'/>
+
+    <menuitem id="menu_logger" name="Books Logger" sequence='0'/>
+    <menuitem id="menu_books_logger" parent ="menu_logger" action="action_books_logger" name='Books' sequence='0'/>
+    
 </odoo>

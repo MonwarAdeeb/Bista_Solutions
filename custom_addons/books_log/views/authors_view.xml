@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_authors_logger_tree" model="ir.ui.view">
+        <field name="name">authors.logger.from</field>
+        <field name="model">authors.logger</field>
+        <field name="arch" type="xml">
+            <tree string="Authors List">
+                <field name="name"/>
+                <field name="date_of_birth"/>
+                <field name="published_books"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_authors_logger_form" model="ir.ui.view">
+        <field name="name">authors.logger.from</field>
+        <field name="model">authors.logger</field>
+        <field name="arch" type="xml">
+            <form string="Author Details">
+                <sheet>
+                    <group>
+                        <field name="photo_author" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_of_birth"/>
+                            <field name="published_books" widget="many2many_tags"/>                             
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_authors_logger" model="ir.actions.act_window">
+        <field name="name">Authors</field>
+        <field name="res_model">authors.logger</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_authors_logger" parent ="menu_logger" action="action_authors_logger" name='Authors' sequence='1'/>
+    
+</odoo>

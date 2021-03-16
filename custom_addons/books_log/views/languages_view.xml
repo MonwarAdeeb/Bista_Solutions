@@ -7,7 +7,6 @@
         <field name="arch" type="xml">
             <tree string="languages List">
                 <field name="languages"/>
-                <!-- <field name="books"/> -->
             </tree>
         </field>
     </record>
@@ -21,7 +20,6 @@
                     <group>
                         <group>
                             <field name="languages"/>
-                            <!-- <field name="books"/> -->
                         </group>
                     </group>
                 </sheet>
@@ -36,6 +34,6 @@
     </record>
 
 
-    <menuitem id="menu_languages_logger" parent ="menu_logger" action="action_languages_logger" name='Languages'/>
+    <menuitem id="menu_languages_logger" parent ="menu_logger" action="action_languages_logger" name='Languages' sequence='3'/>
     
 </odoo>

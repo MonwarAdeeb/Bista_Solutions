@@ -39,6 +39,6 @@
     </record>
 
 
-    <menuitem id="menu_authors_logger" parent ="menu_logger" action="action_authors_logger" name='Authors' sequence='1'/>
+    <menuitem id="menu_authors_logger" parent ="menu_logger" action="action_authors_logger" name='Authors' sequence='2'/>
     
 </odoo>

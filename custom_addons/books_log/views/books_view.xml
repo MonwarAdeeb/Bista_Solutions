@@ -10,7 +10,7 @@
                 <field name="author"/>
                 <field name="price"/>
                 <!-- <field name="photo" widget="image" class="oe_avatar"/> -->
-                <field name="language"/>
+                <field name="languages"/>
                 <field name="genre"/>
                 <field name="date_of_purchase"/>
                 <field name="pages"/>
@@ -36,7 +36,7 @@
                         <separator/>
                         
                         <group>    
-                            <field name="language"/>
+                            <field name="languages"/>
                             <field name="genre"/>
                             <field name="pages"/>
                             <field name="date_of_purchase"/>
@@ -59,6 +59,6 @@
 
 
     <menuitem id="menu_logger" name="Books Logger" sequence='0'/>
-    <menuitem id="menu_books_logger" parent ="menu_logger" action="action_books_logger" name='Books' sequence='0'/>
+    <menuitem id="menu_books_logger" parent ="menu_logger" action="action_books_logger" name='Books' sequence='1'/>
     
 </odoo>

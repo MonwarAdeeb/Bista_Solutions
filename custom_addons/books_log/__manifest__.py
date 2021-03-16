@@ -8,7 +8,7 @@
     'data': [
         'views/books_view.xml',
         'views/authors_view.xml',
-        # 'views/languages_view.xml',
+        'views/languages_view.xml',
     ],
     'installable': True,
     'application': True,

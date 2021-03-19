@@ -14,6 +14,7 @@
                 <field name="genre"/>
                 <field name="date_of_purchase"/>
                 <field name="pages"/>
+                <field name="shelf_number"/>
                 <field name="details"/>
             </tree>
         </field>
@@ -40,6 +41,7 @@
                             <field name="genre"/>
                             <field name="pages"/>
                             <field name="date_of_purchase"/>
+                            <field name="shelf_number"/>
                             <newline/>
                             <field name="details"/>
                         </group>  

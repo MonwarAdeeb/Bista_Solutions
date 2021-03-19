@@ -15,14 +15,16 @@ class Languages(models.Model):
     def create(self, value):
         if re.findall(self.pattern, value['languages']):
             raise UserError("Language name can't contain any numbers!")
+
         return super(Languages, self).create(value)
 
     def write(self, value):
         if re.findall(self.pattern, value['languages']):
             raise UserError("Language name can't contain any numbers!")
+
         return super(Languages, self).write(value)
 
     @api.onchange('languages')
     def onchange_language(self):
-        if re.findall(self.pattern, self.languages):
+        if self.languages and re.findall(self.pattern, self.languages):
             raise UserError("Language name can't contain any numbers!")

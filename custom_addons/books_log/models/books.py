@@ -18,11 +18,11 @@ class Books(models.Model):
                          help="This is how much the book costs!")
     genre = fields.Char(string='Genre', default="Unspecified")
     languages = fields.Many2one("languages.logger", string="Language")
-    # language = fields.Selection(
-    #     [('bangla', 'Bangla'), ('english', 'English'), ('others', 'Other')], string='Language', default="bangla")
     pages = fields.Integer(string="Number of Pages")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
+    shelf_number = fields.Many2one('shelves.logger', string="Shelf")
+
     details = fields.Text("Details")
 
     @api.model
@@ -32,14 +32,13 @@ class Books(models.Model):
 
         if not values['details']:
             values['details'] = 'Not Available'
+
         return super(Books, self).create(values)
 
     def write(self, values):
-        if values['price'] < 0 or values['pages'] < 0:
-            raise UserError("Price or Number of Pages can't be negative!")
+        if 'details' in values.keys() and not values['details']:
+            values['details'] = 'Deleted'
 
-        if not values['details']:
-            values['details'] = 'Not Available'
         return super(Books, self).write(values)
 
     @api.onchange('price', 'pages')

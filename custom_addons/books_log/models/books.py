@@ -28,24 +28,32 @@ class Books(models.Model):
 
     details = fields.Text("Details")
 
+    def generate_discount(self):
+        after_discount = 0
+        if self.price:
+            after_discount = self.price * 0.75
+
+        return after_discount
+
     def _get_discount(self):
         for item in self:
-            after_discount = 0
-            if item.price:
-                after_discount = item.price * 0.75
+            item.discount_price = item.generate_discount()
 
-            item.discount_price = after_discount
+    def generate_book_code(self):
+        first_part = ""
+        last_part = ""
+        if self.title:
+            first_part = self.title.split()[0]
+        if self.genre:
+            last_part = self.genre.split()[0]
+
+        generated_code = first_part + '--' + last_part
+
+        return generated_code
 
     def _get_book_code(self):
         for item in self:
-            first_part = ""
-            last_part = ""
-            if item.title:
-                first_part = item.title.split()[0]
-            if item.genre:
-                last_part = item.genre.split()[0]
-
-            item.book_code = first_part + "-" + last_part
+            item.book_code = item.generate_book_code()
 
     @api.model
     def create(self, values):

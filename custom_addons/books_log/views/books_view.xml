@@ -9,12 +9,12 @@
                 <field name="title"/>
                 <field name="author"/>
                 <field name="price"/>
-                <!-- <field name="photo" widget="image" class="oe_avatar"/> -->
                 <field name="languages"/>
                 <field name="genre"/>
                 <field name="date_of_purchase"/>
                 <field name="pages"/>
                 <field name="shelf_number"/>
+                <field name="book_code"/>
                 <field name="details"/>
             </tree>
         </field>
@@ -31,7 +31,8 @@
                         <group>
                             <field name="title"/>
                             <field name="author" widget="many2many_tags"/>
-                            <field name="price"/>                            
+                            <field name="price"/>
+                            <field name="discount_price"/>                            
                         </group>
 
                         <separator/>
@@ -42,6 +43,7 @@
                             <field name="pages"/>
                             <field name="date_of_purchase"/>
                             <field name="shelf_number"/>
+                            <field name="book_code"/>
                             <newline/>
                             <field name="details"/>
                         </group>  

@@ -14,16 +14,38 @@ class Books(models.Model):
                         help="This is the name of the book!")
     author = fields.Many2many('authors.logger', string="Author", required=True,
                               help="This is the one who wrote the book!")
-    price = fields.Float(string="Price in $", required=True,
+    price = fields.Float(string="Price (In $)", required=True,
                          help="This is how much the book costs!")
+    discount_price = fields.Float(
+        string="Discounted Price (In $)", compute="_get_discount", invisible=True, help="Price After 20% Discount!")
     genre = fields.Char(string='Genre', default="Unspecified")
     languages = fields.Many2one("languages.logger", string="Language")
     pages = fields.Integer(string="Number of Pages")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
     shelf_number = fields.Many2one('shelves.logger', string="Shelf")
+    book_code = fields.Char(string="Book Code", compute="_get_book_code")
 
     details = fields.Text("Details")
+
+    def _get_discount(self):
+        for item in self:
+            after_discount = 0
+            if item.price:
+                after_discount = item.price * 0.75
+
+            item.discount_price = after_discount
+
+    def _get_book_code(self):
+        for item in self:
+            first_part = ""
+            last_part = ""
+            if item.title:
+                first_part = item.title.split()[0]
+            if item.genre:
+                last_part = item.genre.split()[0]
+
+            item.book_code = first_part + "-" + last_part
 
     @api.model
     def create(self, values):

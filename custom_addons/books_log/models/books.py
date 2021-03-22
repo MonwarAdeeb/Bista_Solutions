@@ -8,30 +8,33 @@ class Books(models.Model):
     _descroption = "First Addon - Books"
     _rec_name = 'title'
 
+    # General Fields
     photo = fields.Binary(string="Cover Photo", attachment=True)
-
     title = fields.Char(string="Title", required=True,
                         help="This is the name of the book!")
-    author = fields.Many2many('authors.logger', string="Author", required=True,
-                              help="This is the one who wrote the book!")
     price = fields.Float(string="Price (In $)", required=True,
                          help="This is how much the book costs!")
-    discount_price = fields.Float(
-        string="Discounted Price (In $)", compute="_get_discount", invisible=True, help="Price After 20% Discount!")
     genre = fields.Char(string='Genre', default="Unspecified")
-    languages = fields.Many2one("languages.logger", string="Language")
     pages = fields.Integer(string="Number of Pages")
+    details = fields.Text("Details")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
-    shelf_number = fields.Many2one('shelves.logger', string="Shelf")
+
+    # Computed Fieds
+    discount_price = fields.Float(
+        string="Discounted Price (In $)", compute="_get_discount", invisible=True, help="Price After 20% Discount!")
     book_code = fields.Char(string="Book Code", compute="_get_book_code")
 
-    details = fields.Text("Details")
+    # Relations
+    author = fields.Many2many('authors.logger', string="Author", required=True,
+                              help="This is the one who wrote the book!")
+    languages = fields.Many2one("languages.logger", string="Language")
+    shelf_number = fields.Many2one('shelves.logger', string="Shelf")
 
     def generate_discount(self):
         after_discount = 0
         if self.price:
-            after_discount = self.price * 0.75
+            after_discount = self.price * 0.80
 
         return after_discount
 

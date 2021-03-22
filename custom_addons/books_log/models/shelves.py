@@ -6,6 +6,9 @@ class Shelves(models.Model):
     _descroption = "First Addon - Shelves"
     _rec_name = 'shelf_no'
 
+    # General
     shelf_no = fields.Integer(string="Shelf Number")
+
+    # Relations
     books_in_shelf = fields.One2many(
         'books.logger', 'shelf_number', string="Books in Shelf")

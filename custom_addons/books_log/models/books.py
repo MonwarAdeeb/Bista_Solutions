@@ -77,4 +77,6 @@ class Books(models.Model):
     @api.onchange('price', 'pages')
     def onchange_price_page(self):
         if self.price < 0 or self.pages < 0:
-            raise UserError("Price or Number of Pages can't be negative!")
+            #raise UserError("Price or Number of Pages can't be negative!")
+            raise UserError(
+                _(f"{self.price} is not a valid page number/price!"))

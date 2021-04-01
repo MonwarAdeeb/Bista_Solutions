@@ -3,7 +3,7 @@ from odoo import _, api, fields, models
 
 class Shelves(models.Model):
     _name = 'shelves.logger'
-    _descroption = "First Addon - Shelves"
+    _description = "First Addon - Shelves"
     _rec_name = 'shelf_no'
 
     # General

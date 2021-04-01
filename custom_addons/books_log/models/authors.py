@@ -4,7 +4,7 @@ from odoo import _, api, fields, models
 
 class Authors(models.Model):
     _name = 'authors.logger'
-    _descroption = "First Addon - Author"
+    _description = "First Addon - Author"
     _rec_name = 'name'
 
     # General Fields

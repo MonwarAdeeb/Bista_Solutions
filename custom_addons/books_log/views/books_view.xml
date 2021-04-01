@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="view_books_logger_tree" model="ir.ui.view">
-        <field name="name">books.logger.from</field>
+        <field name="name">books.logger.tree</field>
         <field name="model">books.logger</field>
         <field name="arch" type="xml">
             <tree string="Books List">
@@ -21,7 +21,7 @@
     </record>
 
     <record id="view_books_logger_form" model="ir.ui.view">
-        <field name="name">books.logger.from</field>
+        <field name="name">books.logger.form</field>
         <field name="model">books.logger</field>
         <field name="arch" type="xml">
             <form string="Book Details">
@@ -62,7 +62,8 @@
     </record>
 
 
-    <menuitem id="menu_logger" name="Books Logger" sequence='0'/>
-    <menuitem id="menu_books_logger" parent ="menu_logger" action="action_books_logger" name='Books' sequence='1'/>
+    <menuitem   id="menu_logger" name="Books Logger" sequence='1'/>
+    <menuitem   id="menu_books_logger" parent ="menu_logger"
+                action="action_books_logger" name='Books' sequence='2'/>
     
 </odoo>

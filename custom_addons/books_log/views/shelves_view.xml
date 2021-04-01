@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="view_shelves_logger_tree" model="ir.ui.view">
-        <field name="name">shelves.logger.from</field>
+        <field name="name">shelves.logger.tree</field>
         <field name="model">shelves.logger</field>
         <field name="arch" type="xml">
             <tree string="Shelves List">
@@ -13,7 +13,7 @@
     </record>
 
     <record id="view_shelves_logger_form" model="ir.ui.view">
-        <field name="name">shelves.logger.from</field>
+        <field name="name">shelves.logger.form</field>
         <field name="model">shelves.logger</field>
         <field name="arch" type="xml">
             <form string="Shelf Details">
@@ -34,6 +34,7 @@
     </record>
 
 
-    <menuitem id="menu_shelves_logger" parent ="menu_logger" action="action_shelves_logger" name='Shelves' sequence='4'/>
+    <menuitem id="menu_shelves_logger" parent ="menu_logger"
+                action="action_shelves_logger" name='Shelves' sequence='5'/>
     
 </odoo>

@@ -5,7 +5,7 @@ import re
 
 class Languages(models.Model):
     _name = 'languages.logger'
-    _descroption = "First Addon - Languages"
+    _description = "First Addon - Languages"
     _rec_name = "languages"
 
     languages = fields.Char(string="Languages")

@@ -5,7 +5,7 @@ from datetime import datetime
 
 class Books(models.Model):
     _name = 'books.logger'
-    _descroption = "First Addon - Books"
+    _description = "First Addon - Books"
     _rec_name = 'title'
 
     # General Fields
@@ -15,7 +15,7 @@ class Books(models.Model):
     price = fields.Float(string="Price (In $)", required=True,
                          help="This is how much the book costs!")
     genre = fields.Char(string='Genre', default="Unspecified")
-    pages = fields.Integer(string="Number of Pages")
+    pages = fields.Integer(string="Number of Pages", invisible=True)
     details = fields.Text("Details")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())

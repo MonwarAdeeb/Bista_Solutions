@@ -15,7 +15,7 @@
                 <field name="pages"/>
                 <field name="shelf_number"/>
                 <field name="book_code"/>
-                <field name="details"/>
+                <field name="details" string="Description"/>
             </tree>
         </field>
     </record>
@@ -25,7 +25,11 @@
         <field name="model">books.logger</field>
         <field name="arch" type="xml">
             <form string="Book Details">
+                <header>
+                    <button string="Hello!" type="object" name="button_message" class="btn btn-primary"/>
+                </header>
                 <sheet>
+
                     <group>
                         <field name="photo" widget="image" class="oe_avatar"/>
                         <group>
@@ -36,18 +40,45 @@
                         </group>
 
                         <separator/>
-                        
-                        <group>    
-                            <field name="languages"/>
-                            <field name="genre"/>
-                            <field name="pages"/>
-                            <field name="date_of_purchase"/>
-                            <field name="shelf_number"/>
-                            <field name="book_code"/>
-                            <newline/>
-                            <field name="details"/>
-                        </group>  
+
+                        <group>
+                        <notebook>
+                            <page string="Book Details">
+                                <pre>
+                                <label for="languages" string="Language : "/>
+                                <field name="languages"/>
+                                </pre>
+                                <pre>
+                                <label for="genre" string="Genre : "/>
+                                <field name="genre"/>
+                                </pre>
+                                <pre>
+                                <label for="genre" string="Pages : "/>
+                                <field name="pages"/>
+                                </pre>
+                                <pre>
+                                <label for="genre" string="Description : "/>
+                                <field name="details"/>
+                                </pre>                                
+                            </page>
+                            <page string="More">
+                                <pre>
+                                <label for="genre" string="Date of Purchase : "/>
+                                <field name="date_of_purchase"/>
+                                </pre>
+                                <pre>
+                                <label for="genre" string="Shelf Numer : "/>
+                                <field name="shelf_number"/>
+                                </pre>
+                                <pre>
+                                <label for="genre" string="Book Code : "/>
+                                <field name="book_code"/>
+                                </pre>
+                            </page>
+                        </notebook>
+                        </group>
                     </group>
+
                 </sheet>
             </form>
         </field>

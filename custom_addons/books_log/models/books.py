@@ -76,7 +76,22 @@ class Books(models.Model):
 
     @api.onchange('price', 'pages')
     def onchange_price_page(self):
-        if self.price < 0 or self.pages < 0:
-            #raise UserError("Price or Number of Pages can't be negative!")
+        if self.price < 0:
             raise UserError(
-                _(f"{self.price} is not a valid page number/price!"))
+                _(f"{self.price} is not a valid price!"))
+
+        if self.pages < 1:
+            raise UserError(
+                _(f"{self.pages} is not a valid page number!"))
+
+    def button_message(self):
+        raise UserError(
+            _("Hello! I'm Adeeb from Bista Solutions Inc.\
+            \nHave a Good Day!!"))
+
+        # display = {
+        #     'title': _('Greetings!'),
+        #     'message': _("Hello! I'm Adeeb from Bista Solutions Inc.\
+        #         \nHave a Good Day!")
+        # }
+        # return {'warning': display}

@@ -32,8 +32,12 @@
     </record>
 
 
-    <menuitem   id="menu_dealer_name_logger" parent ="menu_logger"
-                action="action_dealer_name_logger" name='Dealers'
-                sequence='6'/>
+    <menuitem   id="menu_dealer_name_logger_in_sale" parent ="sale.menu_sale_config"
+                action="action_dealer_name_logger" name='Dealer Names'
+                sequence='0'/>
+    
+    <menuitem   id="menu_dealer_name_logger_in_inventory" parent ="stock.menu_stock_config_settings"
+                action="action_dealer_name_logger" name='Dealer Names'
+                sequence='0'/>
     
 </odoo>

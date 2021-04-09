@@ -15,14 +15,15 @@ class Books(models.Model):
     price = fields.Float(string="Price (In $)", required=True,
                          help="This is how much the book costs!")
     genre = fields.Char(string='Genre', default="Unspecified")
-    pages = fields.Integer(string="Number of Pages", invisible=True)
+    pages = fields.Integer(string="Number of Pages")
     details = fields.Text("Details")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
 
     # Computed Fieds
     discount_price = fields.Float(
-        string="Discounted Price (In $)", compute="_get_discount", invisible=True, help="Price After 20% Discount!")
+        string="Discounted Price (In $)", compute="_get_discount",
+        help="Price After 20% Discount!")
     book_code = fields.Char(string="Book Code", compute="_get_book_code")
 
     # Relations

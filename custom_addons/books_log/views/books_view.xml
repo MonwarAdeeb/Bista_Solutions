@@ -84,6 +84,25 @@
         </field>
     </record>
 
+    <record id="view_books_logger_search" model="ir.ui.view">
+        <field name="name">books.logger.search</field>
+        <field name="model">books.logger</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <field name="author"/>
+                <field name="price"/>
+                <field name="languages"/>
+                <field name="genre"/>
+                <field name="date_of_purchase"/>
+                <field name="pages"/>
+                <field name="shelf_number"/>
+                <field name="book_code"/>
+                <field name="details"/>
+            </search>
+        </field>
+    </record>
+
 
 
     <record id="action_books_logger" model="ir.actions.act_window">

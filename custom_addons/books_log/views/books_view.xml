@@ -30,6 +30,7 @@
                     <button string="Humayun Ahmed's Books" type="object" name="orm_show_books_humayun" class="btn btn-primary"/>
                     <button string="All Books" type="object" name="sql_show_books_all" class="btn btn-primary"/>
                     <button string="Create Dummy Book" type="object" name="orm_dummy_create_button" class="btn btn-primary"/>
+                    <button string="Delete Dummy Book" type="object" name="orm_dummy_delete_button" class="btn btn-primary"/>
                 </header>
                 <sheet>
 

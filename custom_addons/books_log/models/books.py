@@ -116,7 +116,11 @@ class Books(models.Model):
             'details': "Dummy Details"
         })
 
-    # def orm_delete_button(self)
+    def orm_dummy_delete_button(self):
+        retrieved_books = self.env['books.logger'].search([])
+        for book in retrieved_books:
+            if book.title == 'Dummy Book':
+                book.unlink()
 
     def sql_show_books_all(self):
         self.env.cr.execute(""" SELECT title FROM books_logger; """,)

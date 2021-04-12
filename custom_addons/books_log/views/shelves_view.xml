@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree string="Shelves List">
                 <field name="shelf_no"/>
+                <field name="in_use"/>
                 <field name="books_in_shelf"/>
             </tree>
         </field>
@@ -20,6 +21,7 @@
                 <sheet>
                     <group>
                         <field name="shelf_no"/>
+                        <field name="in_use"/>
                         <field name="books_in_shelf" widget="one2many_tags"/>
                     </group>
                 </sheet>

@@ -8,6 +8,7 @@ class Shelves(models.Model):
 
     # General
     shelf_no = fields.Integer(string="Shelf Number")
+    in_use = fields.Boolean('In Use')
 
     # Relations
     books_in_shelf = fields.One2many(

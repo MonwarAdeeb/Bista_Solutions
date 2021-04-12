@@ -30,7 +30,8 @@ class Books(models.Model):
     author = fields.Many2many('authors.logger', string="Author", required=True,
                               help="This is the one who wrote the book!")
     languages = fields.Many2one("languages.logger", string="Language")
-    shelf_number = fields.Many2one('shelves.logger', string="Shelf")
+    shelf_number = fields.Many2one(
+        'shelves.logger', string="Shelf", domain=[('in_use', '=', True)])
 
     def generate_discount(self):
         after_discount = 0
@@ -77,11 +78,11 @@ class Books(models.Model):
 
     @api.onchange('price', 'pages')
     def onchange_price_page(self):
-        if self.price < 0:
+        if self.price and self.price < 0:
             raise UserError(
                 _(f"{self.price} is not a valid price!"))
 
-        if self.pages < 1:
+        if self.pages and self.pages < 1:
             raise UserError(
                 _(f"{self.pages} is not a valid page number!"))
 

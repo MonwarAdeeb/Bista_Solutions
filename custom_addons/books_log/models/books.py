@@ -85,7 +85,7 @@ class Books(models.Model):
             raise UserError(
                 _(f"{self.pages} is not a valid page number!"))
 
-    def button_message(self):
+    def hello_button_message(self):
         raise UserError(
             _("Hello! I'm Adeeb from Bista Solutions Inc.\
             \nHave a Good Day!!"))
@@ -96,3 +96,19 @@ class Books(models.Model):
         #         \nHave a Good Day!")
         # }
         # return {'warning': display}
+
+    def orm_exeution_button(self):
+        retrieved_books = self.env['books.logger'].search(
+            [('author', '=', "Humayun Ahmed")])
+        books_to_show = []
+        for book in retrieved_books:
+            print(book.title)
+            books_to_show.append(book.title)
+
+        raise UserError(_(books_to_show))
+
+    def sql_execution(self):
+        self.env.cr.execute(""" SELECT title FROM books_logger; """,)
+        all_books = self.env.cr.fetchall()
+
+        raise UserError(_(all_books))

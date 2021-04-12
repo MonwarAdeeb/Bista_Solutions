@@ -26,7 +26,9 @@
         <field name="arch" type="xml">
             <form string="Book Details">
                 <header>
-                    <button string="Hello!" type="object" name="button_message" class="btn btn-primary"/>
+                    <button string="Hello!" type="object" name="hello_button_message" class="btn btn-primary"/>
+                    <button string="Humayun Ahmed's Books" type="object" name="orm_exeution_button" class="btn btn-primary"/>
+                    <button string="All Books" type="object" name="sql_execution" class="btn btn-primary"/>
                 </header>
                 <sheet>
 

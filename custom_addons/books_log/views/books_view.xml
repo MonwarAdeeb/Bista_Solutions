@@ -27,8 +27,9 @@
             <form string="Book Details">
                 <header>
                     <button string="Hello!" type="object" name="hello_button_message" class="btn btn-primary"/>
-                    <button string="Humayun Ahmed's Books" type="object" name="orm_exeution_button" class="btn btn-primary"/>
-                    <button string="All Books" type="object" name="sql_execution" class="btn btn-primary"/>
+                    <button string="Humayun Ahmed's Books" type="object" name="orm_show_books_humayun" class="btn btn-primary"/>
+                    <button string="All Books" type="object" name="sql_show_books_all" class="btn btn-primary"/>
+                    <button string="Create Dummy Book" type="object" name="orm_dummy_create_button" class="btn btn-primary"/>
                 </header>
                 <sheet>
 

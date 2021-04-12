@@ -33,6 +33,32 @@ class Books(models.Model):
     shelf_number = fields.Many2one(
         'shelves.logger', string="Shelf", domain=[('in_use', '=', True)])
 
+    @api.model
+    def create(self, values):
+        if values['price'] < 0 or values['pages'] < 0:
+            raise UserError("Price or Number of Pages can't be negative!")
+
+        if not values['details']:
+            values['details'] = 'Not Available'
+
+        return super(Books, self).create(values)
+
+    def write(self, values):
+        if 'details' in values.keys() and not values['details']:
+            values['details'] = 'Deleted'
+
+        return super(Books, self).write(values)
+
+    @api.onchange('price', 'pages')
+    def onchange_price_page(self):
+        if self.price and self.price < 0:
+            raise UserError(
+                _(f"{self.price} is not a valid price!"))
+
+        if self.pages and self.pages < 1:
+            raise UserError(
+                _(f"{self.pages} is not a valid page number!"))
+
     def generate_discount(self):
         after_discount = 0
         if self.price:
@@ -60,32 +86,6 @@ class Books(models.Model):
         for item in self:
             item.book_code = item.generate_book_code()
 
-    @api.model
-    def create(self, values):
-        if values['price'] < 0 or values['pages'] < 0:
-            raise UserError("Price or Number of Pages can't be negative!")
-
-        if not values['details']:
-            values['details'] = 'Not Available'
-
-        return super(Books, self).create(values)
-
-    def write(self, values):
-        if 'details' in values.keys() and not values['details']:
-            values['details'] = 'Deleted'
-
-        return super(Books, self).write(values)
-
-    @api.onchange('price', 'pages')
-    def onchange_price_page(self):
-        if self.price and self.price < 0:
-            raise UserError(
-                _(f"{self.price} is not a valid price!"))
-
-        if self.pages and self.pages < 1:
-            raise UserError(
-                _(f"{self.pages} is not a valid page number!"))
-
     def hello_button_message(self):
         raise UserError(
             _("Hello! I'm Adeeb from Bista Solutions Inc.\
@@ -98,7 +98,7 @@ class Books(models.Model):
         # }
         # return {'warning': display}
 
-    def orm_exeution_button(self):
+    def orm_show_books_humayun(self):
         retrieved_books = self.env['books.logger'].search(
             [('author', '=', "Humayun Ahmed")])
         books_to_show = []
@@ -108,7 +108,17 @@ class Books(models.Model):
 
         raise UserError(_(books_to_show))
 
-    def sql_execution(self):
+    def orm_dummy_create_button(self):
+        self.env['books.logger'].create({
+            'title': "Dummy Book",
+            'price': 99,
+            'pages': 99,
+            'details': "Dummy Details"
+        })
+
+    # def orm_delete_button(self)
+
+    def sql_show_books_all(self):
         self.env.cr.execute(""" SELECT title FROM books_logger; """,)
         all_books = self.env.cr.fetchall()
 

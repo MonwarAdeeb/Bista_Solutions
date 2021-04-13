@@ -110,6 +110,11 @@
                 <separator/>
                 <filter string="Bangla Books" name='books_bangla' domain="[('languages', '=','Bangla')]"/>
 
+                <filter string="Genre" name='group_genre' context="{'group_by':'genre'}" />
+                <separator/>
+                <filter string="Language" name='group_languages' context="{'group_by':'languages'}" />
+
+
             </search>
         </field>
     </record>s

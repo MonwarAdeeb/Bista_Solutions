@@ -11,6 +11,7 @@
                 <field name="price"/>
                 <field name="languages"/>
                 <field name="genre"/>
+                <field name="id_no"/>
                 <field name="date_of_purchase"/>
                 <field name="pages"/>
                 <field name="shelf_number"/>
@@ -41,6 +42,7 @@
                             <field name="author" widget="many2many_tags"/>
                             <field name="price"/>
                             <field name="discount_price"/>                            
+                            <field name="id_no"/>                            
                         </group>
 
                         <separator/>

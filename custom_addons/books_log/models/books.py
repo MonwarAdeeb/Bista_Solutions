@@ -7,6 +7,9 @@ class Books(models.Model):
     _name = 'books.logger'
     _description = "First Addon - Books"
     _rec_name = 'title'
+    _sql_constraints = [
+        ('id_no_unique', 'unique(id_no)', 'The Book Code Must be Unique !')
+    ]
 
     # General Fields
     photo = fields.Binary(string="Cover Photo", attachment=True)
@@ -17,6 +20,7 @@ class Books(models.Model):
     genre = fields.Char(string='Genre', default="Unspecified")
     pages = fields.Integer(string="Number of Pages")
     details = fields.Text("Details")
+    id_no = fields.Char(string="Book ID")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
 

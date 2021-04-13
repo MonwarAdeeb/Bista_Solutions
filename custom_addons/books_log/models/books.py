@@ -15,6 +15,7 @@ class Books(models.Model):
     photo = fields.Binary(string="Cover Photo", attachment=True)
     title = fields.Char(string="Title", required=True,
                         help="This is the name of the book!")
+    discount_eligibility = fields.Boolean(string='Discount Eligibility')
     price = fields.Float(string="Price (In $)", required=True,
                          help="This is how much the book costs!")
     genre = fields.Char(string='Genre', default="Unspecified")

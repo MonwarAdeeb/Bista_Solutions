@@ -105,9 +105,14 @@
                 <field name="shelf_number"/>
                 <field name="book_code"/>
                 <field name="details"/>
+
+                <filter string="Books Under 5 USD" name='books_under_five' domain="[('price', '&lt;=',5)]"/>
+                <separator/>
+                <filter string="Bangla Books" name='books_bangla' domain="[('languages', '=','Bangla')]"/>
+
             </search>
         </field>
-    </record>
+    </record>s
 
 
 

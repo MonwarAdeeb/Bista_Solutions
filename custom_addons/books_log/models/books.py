@@ -8,7 +8,7 @@ class Books(models.Model):
     _description = "First Addon - Books"
     _rec_name = 'title'
     _sql_constraints = [
-        ('id_no_unique', 'unique(id_no)', 'The Book Code Must be Unique !')
+        ('id_no_unique', 'unique(id_no)', 'The Book ID Must be Unique !')
     ]
 
     # General Fields

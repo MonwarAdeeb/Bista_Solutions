@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_extension_brand_tree" model="ir.ui.view">
+        <field name="name">product_extension.brand.tree</field>
+        <field name="model">product_extension.brand</field>
+        <field name="arch" type="xml">
+            <tree string="Brand List">
+                <field name="brand"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_extension_brand_form" model="ir.ui.view">
+        <field name="name">product_extension.brand.form</field>
+        <field name="model">product_extension.brand</field>
+        <field name="arch" type="xml">
+            <form string="Supplier Details">
+                <sheet>
+                    <group>
+                        <field name="brand"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_extension_brand" model="ir.actions.act_window">
+        <field name="name">Product Brands</field>
+        <field name="res_model">product_extension.brand</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem   id="menu_product_brand_logger_in_sale" parent ="sale.menu_sale_config"
+                action="action_product_brand_logger" name='Product Brands'
+                sequence='0'/>
+    <menuitem   id="menu_product_brand_logger_in_inventory" parent ="stock.menu_stock_config_settings"
+                action="action_product_brand_logger" name='Product Brands'
+                sequence='0'/>
+
+
+</odoo>

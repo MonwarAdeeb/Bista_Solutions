@@ -21,7 +21,7 @@
             </xpath>
 
             <xpath expr="//field[@name='product_id']" position='attributes'>
-                <attribute name="domain">[('dealer.id', '=', parent.dealer_id)]</attribute>
+                <attribute name="domain">[('dealer', '=', parent.dealer_id)]</attribute>
             </xpath>
 
         </field>

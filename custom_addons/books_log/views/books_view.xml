@@ -44,7 +44,9 @@
                             <field name="discount_eligibility"/>
                             <field name="price"/>
                             <field name="discount_price" attrs="{'invisible':[('discount_eligibility','=',False)]}"/>                            
-                            <field name="id_no"/>                            
+                            <field name="id_no"/>
+                            <field name="in_stock"/>
+                            <field name="in_stock_text"/>
                         </group>
 
                         <separator/>

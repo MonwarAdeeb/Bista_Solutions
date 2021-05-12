@@ -1,5 +1,5 @@
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 from datetime import datetime
 
 
@@ -22,6 +22,8 @@ class Books(models.Model):
     pages = fields.Integer(string="Number of Pages")
     details = fields.Text(string="Details")
     id_no = fields.Char(string="Book ID")
+    in_stock = fields.Boolean()
+    in_stock_text = fields.Char("Available in Stock")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
 
@@ -40,40 +42,30 @@ class Books(models.Model):
 
     @api.model
     def create(self, values):
-        if values['price'] < 0 or values['pages'] < 0:
-            raise UserError("Price or Number of Pages can't be negative!")
-
         if not values['details']:
             values['details'] = 'Not Available'
 
-        # for items in self:
-        #     if values['id_no'] == items.id_no:
-        #         raise UserError(_("Book ID Must be Unique!"))
-
-        # self.env.cr.execute(""" SELECT id_no FROM books_logger; """,)
-        # all_book_ids = self.env.cr.fetchall()
-
-        # for current_id in all_book_ids:
-        #     if current_id == values['id_no']:
-        #         raise UserError(_("Book ID Must be Unique!"))
-
-        return super(Books, self).create(values)
+        if values['price'] < 0 or values['pages'] < 0:
+            raise ValidationError(_(
+                "Price or Number of Pages can't be negative!"))
+        else:
+            return super(Books, self).create(values)
 
     def write(self, values):
         if 'details' in values.keys() and not values['details']:
             values['details'] = 'Deleted'
+        if 'price' in values.keys() and values['price'] < 0 or 'pages' in values.keys() and values['pages'] < 0:
+            raise ValidationError(_(
+                "Price or Number of Pages can't be negative!"))
+        else:
+            return super(Books, self).write(values)
 
-        return super(Books, self).write(values)
-
-    @api.onchange('price', 'pages')
-    def onchange_price_page(self):
-        if self.price and self.price < 0:
-            raise UserError(
-                _(f"{self.price} is not a valid price!"))
-
-        if self.pages and self.pages < 1:
-            raise UserError(
-                _(f"{self.pages} is not a valid page number!"))
+    @api.onchange('in_stock')
+    def onchange_stock(self):
+        if self.in_stock:
+            self.in_stock_text = 'Yes'
+        else:
+            self.in_stock_text = 'No'
 
     def generate_discount(self):
         after_discount = 0
@@ -85,7 +77,7 @@ class Books(models.Model):
     def _get_discount(self):
         for item in self:
             item.discount_price = item.generate_discount()
- 
+
     def generate_book_code(self):
         first_part = ""
         last_part = ""

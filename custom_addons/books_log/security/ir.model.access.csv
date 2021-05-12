@@ -3,3 +3,7 @@ access_employee_books_log_books,access.employee.books.log.books,books_log.model_
 access_employee_books_log_author,access.employee.books.log.author,books_log.model_authors_logger,books_log.group_book_logger_employee,1,1,1,0
 access_employee_books_log_languages,access.employee.books.log.languages,books_log.model_languages_logger,books_log.group_book_logger_employee,1,1,1,0
 access_employee_books_log_shelves,access.employee.books.log.shelves,books_log.model_shelves_logger,books_log.group_book_logger_employee,1,1,1,0
+access_owner_books_log_books,access.owner.books.log.books,books_log.model_books_logger,books_log.group_book_logger_owner,1,1,1,1
+access_owner_books_log_author,access.owner.books.log.author,books_log.model_authors_logger,books_log.group_book_logger_owner,1,1,1,1
+access_owner_books_log_languages,access.owner.books.log.languages,books_log.model_languages_logger,books_log.group_book_logger_owner,1,1,1,1
+access_owner_books_log_shelves,access.owner.books.log.shelves,books_log.model_shelves_logger,books_log.group_book_logger_owner,1,1,1,1

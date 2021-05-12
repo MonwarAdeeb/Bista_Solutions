@@ -22,7 +22,13 @@
                     <group>
                         <field name="shelf_no"/>
                         <field name="in_use"/>
-                        <field name="books_in_shelf" widget="one2many_tags"/>
+                        <field name="books_in_shelf" widget="one2many_tags">
+                            <tree>
+                                <field name="title"/>
+                                <field name="author"/>
+                                <field name="genre"/>
+                            </tree>
+                        </field>
                     </group>
                 </sheet>
             </form>

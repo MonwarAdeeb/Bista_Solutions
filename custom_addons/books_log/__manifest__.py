@@ -9,6 +9,9 @@
                 'sale'
                 ],
     'data': [
+        'security/book_log_security.xml',
+        'security/ir.model.access.csv',
+
         'views/books_view.xml',
         'views/authors_view.xml',
         'views/languages_view.xml',

@@ -8,7 +8,7 @@ class Books(models.Model):
     _description = "First Addon - Books"
     _rec_name = 'title'
     _sql_constraints = [
-        ('id_no_unique', 'unique(id_no)', 'The Book ID Must be Unique !')
+        ('id_no_unique', 'unique(id_no)', 'The Book ID Must be Unique!')
     ]
 
     # General Fields
@@ -20,7 +20,7 @@ class Books(models.Model):
                          help="This is how much the book costs!")
     genre = fields.Char(string='Genre', default="Unspecified")
     pages = fields.Integer(string="Number of Pages")
-    details = fields.Text("Details")
+    details = fields.Text(string="Details")
     id_no = fields.Char(string="Book ID")
     date_of_purchase = fields.Date(
         string='Date of Purchase', default=datetime.today())
@@ -45,6 +45,17 @@ class Books(models.Model):
 
         if not values['details']:
             values['details'] = 'Not Available'
+
+        # for items in self:
+        #     if values['id_no'] == items.id_no:
+        #         raise UserError(_("Book ID Must be Unique!"))
+
+        # self.env.cr.execute(""" SELECT id_no FROM books_logger; """,)
+        # all_book_ids = self.env.cr.fetchall()
+
+        # for current_id in all_book_ids:
+        #     if current_id == values['id_no']:
+        #         raise UserError(_("Book ID Must be Unique!"))
 
         return super(Books, self).create(values)
 
@@ -74,7 +85,7 @@ class Books(models.Model):
     def _get_discount(self):
         for item in self:
             item.discount_price = item.generate_discount()
-
+ 
     def generate_book_code(self):
         first_part = ""
         last_part = ""

@@ -7,6 +7,6 @@ class Products(models.Model):
     _description = "First Addon - Products"
     #_rec_name = "brand"
 
-    # Relations
+    # Relations 
     brand = fields.Many2one("product_brand.logger", string="Product Brand")
     dealer = fields.Many2one('dealer_name.logger', string="Dealer Name")

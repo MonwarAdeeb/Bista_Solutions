@@ -1,0 +1,9 @@
+/* styling all list items */
+li {
+  color: red;
+}
+
+/* styling all items of .topitems class */
+.topitems {
+  color: blue;
+}

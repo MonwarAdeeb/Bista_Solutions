@@ -1,0 +1,14 @@
+/* styling all list items */
+li {
+  color: red;
+}
+
+/* styling all members of .topitems class */
+.topitems {
+  color: blue;
+}
+
+/* styling a specific ID that overrides any other styling on it */
+#two {
+  border: 3px solid black;
+}

@@ -1,0 +1,8 @@
+body {
+  background-color: gray;
+}
+
+div {
+  background-color: rgb(154, 154, 255);
+  border-color: blue;
+}

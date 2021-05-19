@@ -1,0 +1,16 @@
+/* setting color of div with class names.
+classname has a (.) oot before their name */
+.firstDiv {
+  color: blue;
+}
+
+.secondDiv {
+  color: red;
+}
+
+/* styling on a paragraph with ID */
+
+#singledout{
+    color: green;
+    text-decoration: ;
+}

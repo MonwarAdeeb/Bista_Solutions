@@ -1,0 +1,9 @@
+/* setting color of divOne class. classname has a (.) oot before their name */
+.firstDiv {
+  color: blue;
+}
+
+.secondDiv {
+    color: blue;
+  }
+  

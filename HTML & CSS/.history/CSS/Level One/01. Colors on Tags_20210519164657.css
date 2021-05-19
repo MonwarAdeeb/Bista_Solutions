@@ -3,19 +3,18 @@
     property: value;
 } */
 
-/* Color on h1, using color name */
 h1 {
   color: blue;
 }
-/* color on li, using RGB */
+/* color  */
 li {
   color: rgb(255, 97, 0);
 }
-/* color on paragraph, usingg hex codee */
+
 p {
   color: #329ba8;
 }
-/* color on h4 using rgba where a=aplha which determinees opacity */
+
 h4 {
   color: rgba(255, 97, 0, 0.5);
 }

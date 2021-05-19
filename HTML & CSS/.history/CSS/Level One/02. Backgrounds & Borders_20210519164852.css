@@ -1,12 +1,10 @@
 /* setting background image. colors can be set as well using
-background-color keyword
-backdrorund-repeat = if the image is small then it'll repeat */
+background-color  */
 body {
   background: url(https://media.istockphoto.com/photos/vintage-aged-dark-brown-color-wooden-stripe-backgrounds-texture-for-picture-id1134005094?k=6&m=1134005094&s=612x612&w=0&h=s4egVALNu8n1HdENXWba3MMnd3H4Jbjn5PrgZRcjAI0=);
   background-repeat: repeat;
 }
 
-/* settingg bcgrnd color, border colo, border width and style */
 div {
   background-color: rgb(78, 78, 243);
   border-color: blue;

@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment</title>
+</head>
+<body>
+    <h1>Course Sign Up Page</h1>
+    <p>Please Note : First Name, Last Name, Password and Email are required</p>
+
+    <form action="005.1 Assessment.html" method="POST">
+        <div>
+            <label for="fname">First Name:</label>
+            <input id="fname" type="text" placeholder="First Name" required>
+
+            <label for="lname">Last Name:</label>
+            <input id="lname" type="text" placeholder="Last Name" required>
+        </div>
+
+        <p></p>
+
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="name@email.com" required>
+    
+            <label for="password">Password:</label>
+            <input id="password" type="password" required>
+    
+        </div>
+
+        <p>Are you over the age of 18?</p>
+        <label for="ageyes">Yes</label>
+        <input id="ageyes" type="radio" name="age" value="yes">
+
+        <label for="ageno">No</label>
+        <input id="ageno" type="radio" name="age" value="no">
+
+        <p>Do you have a Credit Card or PayPal?</p>
+        <select name="payment_metnod">
+            <option value="creit_card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+        </select>
+
+        <p></p>
+        <input type="submit" value="Sign Up">
+
+    </form>
+    
+</body>
+</html>

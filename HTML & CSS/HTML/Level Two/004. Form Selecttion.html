@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Feedback (Forms Selection)</title>
+</head>
+<body>
+    <h1>Hotel Feedback Form</h1>
+
+    <form method="get">
+        <h2> Are you rom inside Bangladesh or outside Bangladesh?</h2>
+        <!-- creating type=radio button,
+            using same name for linking selection (only one can be selected) -->
+        <label for="inBD">Inside: </label>
+        <input id="inBD" type="radio" name="location" value="inside">
+
+        <label for="outBD">Outside: </label>
+        <input id="outBD" type="radio" name="location" value="outside">
+
+        <h2>How was your service?</h2>
+        <!-- Dropdown menu using 'select' and 'option' -->
+        <select name="stars">
+            <option value="Great">3</option>
+            <option value="Okay">2</option>
+            <option value="Bad">1</option>
+        </select>
+
+        <!-- Textarea example -->
+        <h2>Any other Feedback?</h2>
+        <textarea name="ottherfeedback" cols="30" rows="5" placeholder="Let Us Know!"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>

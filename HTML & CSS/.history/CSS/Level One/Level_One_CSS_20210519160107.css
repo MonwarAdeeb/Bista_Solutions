@@ -1,0 +1,8 @@
+General Format
+/* selected tag{
+    property: value;
+} */
+
+h1 {
+  color: blue;
+}

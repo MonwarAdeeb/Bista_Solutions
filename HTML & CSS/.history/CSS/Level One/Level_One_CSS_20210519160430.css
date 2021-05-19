@@ -1,0 +1,12 @@
+/* General Format */
+/* selected tag{
+    property: value;
+} */
+
+h1 {
+  color: rgb(1, 0, 0);
+}
+
+li {
+  color: rgb(100, 0, 0);
+}

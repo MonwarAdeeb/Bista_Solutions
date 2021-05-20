@@ -7,6 +7,32 @@ h1 {
   margin: auto;
 }
 
+thead {
+  background-color: red;
+  border: 6px solid green;
+  font-family: "Farro", sans-serif;
+}
+
+#hone {
+  background-color: #3a86ff;
+}
+
+#htwo {
+  background-color: #8338ec;
+}
+
+#hthree {
+  background-color: #ff006e;
+}
+
+#hfour {
+  background-color: #fb5607;
+}
+
+#hfive {
+  background-color: #ffbe0b;
+}
+
 td {
   background-color: black;
   height: 300px;

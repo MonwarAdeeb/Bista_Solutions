@@ -1,0 +1,16 @@
+h1 {
+  font-family: "Arial";
+}
+
+p {
+  font-family: monospace;
+}
+
+body {
+  font-size: 20px;
+}
+
+/* dynamic font size compared to  */
+#two {
+  font-size: 2em;
+}

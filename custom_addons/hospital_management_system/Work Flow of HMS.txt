@@ -1,4 +1,5 @@
 ---------- Day One Tasks ---------
+[Aim: To Implement Basic Structure and Basic Fields]
 
 # Accesss Rights:
 	#Groups:

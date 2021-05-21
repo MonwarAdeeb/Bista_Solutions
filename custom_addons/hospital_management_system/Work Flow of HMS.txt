@@ -1,0 +1,17 @@
+---------- Day One Tasks ---------
+
+# Accesss Rights:
+	#Groups:
+			Doctors - RW
+			Patients - R
+			Management CRW
+			SuperAdmin - CRWD
+
+
+# Classes:
+	# Doctors:
+	# Patient: 
+	# Medicine:
+	# Hospital (Managemet)
+
+-----------------------------------

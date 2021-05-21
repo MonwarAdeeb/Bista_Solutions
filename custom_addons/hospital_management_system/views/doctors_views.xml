@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_doctors_tree" model="ir.ui.view">
+        <field name="name">hms.doctors.tree</field>
+        <field name="model">hms.doctors</field>
+        <field name="arch" type="xml">
+            <tree string="Doctors' Info">
+                <field name="name"/>
+                <field name="date_of_joining"/>
+                <field name="contact_number"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_doctors_form" model="ir.ui.view">
+        <field name="name">hms.doctors.form</field>
+        <field name="model">hms.doctors</field>
+        <field name="arch" type="xml">
+            <form string="Doctor's Details">
+                <Header></Header>
+
+                <sheet>
+                    <group col="2">
+                        <field name="photo" widget="image" class="oe_avatar"/>
+                    </group>
+
+                    <separator/>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="doctor_id"/>
+                        <field name="date_of_joining"/>
+                        <field name="contact_number"/>
+                        <field name="email"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hms_doctors" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">hms.doctors</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+            {
+                "default_doctor_id" : "D-"
+            }
+        </field>
+    </record>
+
+    <menuitem   id="menu_hms"
+                name="Hospital Management System"
+                sequence="1"/>
+    <menuitem   id="menu_hms_doctors"
+                parent="menu_hms"
+                name="Doctors"
+                action="action_hms_doctors"
+                sequence="2"/>
+
+                
+</odoo>

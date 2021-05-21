@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_patients_tree" model="ir.ui.view">
+        <field name="name">hms.patients.tree</field>
+        <field name="model">hms.patients</field>
+        <field name="arch" type="xml">
+            <tree string="Patients' Info">
+                <field name="name"/>
+                <field name="date_of_admission"/>
+                <field name="contact_number"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_paients_form" model="ir.ui.view">
+        <field name="name">hms.patients.form</field>
+        <field name="model">hms.patients</field>
+        <field name="arch" type="xml">
+            <form string="Patient's Details">
+                <Header></Header>
+
+                <sheet>
+                    <group col="2">
+                        <field name="photo" widget="image" class="oe_avatar"/>
+                    </group>
+
+                    <separator/>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="date_of_admission"/>
+                        <field name="symptoms" string="Symptoms upon Admission"/>
+                        <field name="diagnosis" string="Diafnostic Findinds"/>
+                        <field name="contact_number"/>
+                        <field name="email"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hms_patients" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hms.patients</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+            {
+                "default_patient_id" : "P-"
+            }
+        </field>
+    </record>
+
+    <menuitem   id="menu_hms_patients"
+                parent="menu_hms"
+                name="Patients"
+                action="action_hms_patients"
+                sequence="3"/>
+       
+</odoo>

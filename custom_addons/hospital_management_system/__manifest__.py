@@ -11,7 +11,10 @@
         "security/hms_security.xml",
         "security/ir.model.access.csv",
 
-        "views/doctors_views.xml"
+        "views/doctors_views.xml",
+        "views/patients_views.xml",
+        "views/managements_views.xml"
+
     ],
     "installable": True,
     "application": True,

@@ -4,7 +4,7 @@
 	#Groups:
 		Doctors - RW
 		Patients - R
-		Management CRW
+		Management - CRW
 		SuperAdmin - CRWD
 
 

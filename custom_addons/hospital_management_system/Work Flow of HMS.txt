@@ -2,10 +2,10 @@
 
 # Accesss Rights:
 	#Groups:
-			Doctors - RW
-			Patients - R
-			Management CRW
-			SuperAdmin - CRWD
+		Doctors - RW
+		Patients - R
+		Management CRW
+		SuperAdmin - CRWD
 
 
 # Classes:

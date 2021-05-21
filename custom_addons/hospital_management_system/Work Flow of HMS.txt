@@ -1,5 +1,5 @@
----------- Day One Tasks ---------
-[Aim: To Implement Basic Structure and Basic Fields]
+----------------------- Day One Tasks -----------------------
+[Aim: To Implement Basic Structure and Basic Fields along with Access Rights]
 
 # Accesss Rights:
 	#Groups:
@@ -15,4 +15,4 @@
 	# Medicine:
 	# Hospital (Management):
 
------------------------------------
+-------------------------------------------------------------

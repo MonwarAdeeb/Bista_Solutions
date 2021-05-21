@@ -12,6 +12,6 @@
 	# Doctors:
 	# Patient: 
 	# Medicine:
-	# Hospital (Managemet)
+	# Hospital (Management):
 
 -----------------------------------

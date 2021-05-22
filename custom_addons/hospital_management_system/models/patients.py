@@ -1,6 +1,7 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from datetime import datetime
+import re
 
 
 class Patients(models.Model):
@@ -20,6 +21,7 @@ class Patients(models.Model):
     bill = fields.Float(string="Due Bill")
     discount_given = fields.Boolean()
     discount_percentage = fields.Float(string="Discount Percentage")
+    address = fields.Text(string="Address")
     contact_number = fields.Char(string="Contact Number")
     email = fields.Char(string="Email")
 
@@ -46,3 +48,24 @@ class Patients(models.Model):
     def _get_discount(self):
         for item in self:
             item.discounted_bill = item.generate_discount()
+
+    # API Decorators
+
+    @api.onchange('email')
+    def validate_email(self):
+        if self.email:
+            match = re.match(
+                '^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.email)
+            if match == None:
+                raise ValidationError('Please Enter a Valid E-mail ID')
+
+    @api.model
+    def create(self, values):
+        if not values['address']:
+            values['address'] = "Not Provided"
+        return super(Patients, self).create(values)
+
+    def write(self, values):
+        if 'address' in values.keys() and not values['address']:
+            values['address'] = "Address Was Deleted"
+        return super(Patients, self).write(values)

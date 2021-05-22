@@ -17,6 +17,9 @@ class Patients(models.Model):
         string="Date of Admission", default=datetime.now())
     symptoms = fields.Text(string="Symptoms")
     diagnosis = fields.Text(string="Diagnostics")
+    bill = fields.Float(string="Due Bill")
+    discount_given = fields.Boolean()
+    discount_percentage = fields.Float(string="Discount Percentage")
     contact_number = fields.Char(string="Contact Number")
     email = fields.Char(string="Email")
 
@@ -24,3 +27,22 @@ class Patients(models.Model):
     assigned_doctor = fields.Many2one("hms.doctors", string="Assigned Doctor")
     assigned_medicines = fields.Many2many(
         "hms.medicines", string="Assigned Medicines")
+
+    # Computed Fields
+    discounted_bill = fields.Float(
+        string="Discounted Bill", compute="_get_discount")
+
+    # Functions for Computed Field
+
+    def generate_discount(self):
+        bill_after_discount = 0
+
+        if self.bill and self.discount_percentage:
+            bill_after_discount = self.bill * \
+                (1-(self.discount_percentage/100))
+
+        return bill_after_discount
+
+    def _get_discount(self):
+        for item in self:
+            item.discounted_bill = item.generate_discount()

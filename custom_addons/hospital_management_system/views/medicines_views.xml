@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_medicines_tree" model="ir.ui.view">
+        <field name="name">hms.medicines.tree</field>
+        <field name="model">hms.medicines</field>
+        <field name="arch" type="xml">
+            <tree string="Medicines' Info">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_medicines_form" model="ir.ui.view">
+        <field name="name">hms.medicines.form</field>
+        <field name="model">hms.medicines</field>
+        <field name="arch" type="xml">
+            <form string="Medicine Details">
+                <Header></Header>
+
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="assigned_patients" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hms_medicines" model="ir.actions.act_window">
+        <field name="name">Medicines</field>
+        <field name="res_model">hms.medicines</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem   id="menu_hms_medicines"
+                parent="menu_hms"
+                name="Medicines"
+                action="action_hms_medicines"
+                groups="hospital_management_system.group_hms_patients,hospital_management_system.group_hms_doctors,hospital_management_system.group_hms_management"
+                sequence="5"/>
+
+                
+</odoo>

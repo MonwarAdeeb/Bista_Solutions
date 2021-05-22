@@ -33,8 +33,10 @@
                         <field name="name"/>
                         <field name="patient_id"/>
                         <field name="date_of_admission"/>
+                        <field name="assigned_doctor"/>
+                        <field name="assigned_medicines" widget="many2many_tags"/>
                         <field name="symptoms" string="Symptoms upon Admission"/>
-                        <field name="diagnosis" string="Diafnostic Findinds"/>
+                        <field name="diagnosis" string="Diagnostic Findings"/>
                         <field name="contact_number"/>
                         <field name="email"/>
                     </group>

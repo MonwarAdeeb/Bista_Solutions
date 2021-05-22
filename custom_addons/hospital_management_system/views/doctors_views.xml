@@ -35,6 +35,7 @@
                         <field name="date_of_joining"/>
                         <field name="contact_number"/>
                         <field name="email"/>
+                        <field name="assigned_patient" widget="one2many_tags"/>
                     </group>
                 </sheet>
             </form>

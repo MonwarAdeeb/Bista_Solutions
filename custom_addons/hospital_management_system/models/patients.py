@@ -19,3 +19,8 @@ class Patients(models.Model):
     diagnosis = fields.Text(string="Diagnostics")
     contact_number = fields.Char(string="Contact Number")
     email = fields.Char(string="Email")
+
+    # Relational Fields
+    assigned_doctor = fields.Many2one("hms.doctors", string="Assigned Doctor")
+    assigned_medicines = fields.Many2many(
+        "hms.medicines", string="Assigned Medicines")

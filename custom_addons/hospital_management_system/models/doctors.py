@@ -17,3 +17,7 @@ class Doctors(models.Model):
         string="Date of Joining", default=datetime.today())
     contact_number = fields.Char(string="Contact Number")
     email = fields.Char(string="Email")
+
+    # Relational Field
+    assigned_patient = fields.One2many(
+        "hms.patients", "assigned_doctor", string="Assigned Patient")

@@ -1,4 +1,23 @@
 ----------------------- Day One Tasks -----------------------
+# Relational Field :
+	[Just a suggestion, you can do as you wish though!]:
+	Doctor's form: patients under doctor (o2m)
+	patient's form : doctor assigned to patient(m2o)
+	medicine for patients(m2m)
+	Extra : Doctor's form: Doctor's Department (m2o) + department class (o2m)
+
+# computed field :
+	patient's bill -> discounted bill
+
+# api decorators:
+	on change : phn_no length/email format validation
+	create+write : address ['Not Available' if not provided, 'Deleted' if deleted]
+
+# ineritance (model & view)
+	inheritance+xpath : doctor's speciality field
+
+
+----------------------- Day One Tasks -----------------------
 [Aim: To Implement Basic Structure and Basic Fields along with Access Rights]
 
 # Accesss Rights:

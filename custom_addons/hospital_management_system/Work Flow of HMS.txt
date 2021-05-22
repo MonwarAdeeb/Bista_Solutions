@@ -1,6 +1,7 @@
 ----------------------- Day Two Tasks -----------------------
+[The given fields/relations are suggestion that we've talked on, you can do as you please though! Just Make Sure you're practicing the related topic!]
+
 # Relational Field :
-	[Just a suggestion, you can do as you wish though!]:
 	Doctor's form: patients under doctor (o2m)
 	patient's form : doctor assigned to patient(m2o)
 	medicine for patients(m2m)
@@ -8,13 +9,15 @@
 
 # computed field :
 	patient's bill -> discounted bill
+	[calculate discounted bill field based on patient's bill field]
 
 # api decorators:
 	on change : phn_no length/email format validation
-	create+write : address ['Not Available' if not provided, 'Deleted' if deleted]
+	create+write : address field ['Not Available' if not provided, 'Deleted' if deleted]
 
 # ineritance (model & view)
 	inheritance+xpath : doctor's speciality field
+	[inherit doctor's class and the field 'Speciality' using model and view inheritance]
 
 
 ----------------------- Day One Tasks -----------------------

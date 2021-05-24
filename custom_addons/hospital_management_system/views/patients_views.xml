@@ -99,7 +99,7 @@
                 sequence="1"/> 
 
 
-    <!-- <record id="view_hms_patients_admission_dates_filter" model="ir.ui.view">
+    <record id="view_hms_patients_admission_dates_filter" model="ir.ui.view">
         <field name="name">hms.patients.adnission.dates.filter.form</field>
         <field name="model">hms.patients.admission.dates.filter</field>
         <field name="arch" type="xml">
@@ -111,11 +111,11 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button string="Filter Admission Dates" type="object" name="filter_patient_admission_dates" class="btn btn-primarry"/>
+                    <button string="Filter Admission Dates" type="object" name="filter_patients_admission_dates" class="btn btn-primary"/>
                 </footer>
             </form>
         </field>
-    </record> -->
+    </record>
 
     <record id="action_patients_admission_dates_filter" model="ir.actions.act_window">
         <field name="name">Patients' Admission Date Filter</field>

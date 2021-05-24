@@ -80,3 +80,23 @@ class PatientsAdmissionDatesFilter(models.TransientModel):
         string='Date From', default=datetime.today())
     to_date = fields.Date(
         string='Date To', default=datetime.today())
+
+    def filter_patients_admission_dates(self):
+        # Empty lists to store filtered dates later
+        # filtered_dates = []
+        filtered_dates_ids = []
+
+        # filtering dates from database
+        filtered_dates = self.env["hms.patients"].search(
+            ['&', ('date_of_admission', '>=', self.from_date), ('date_of_admission', '<=', self.to_date)])
+
+        for date in filtered_dates:
+            filtered_dates_ids.append(date.id)
+
+        return{
+            "name": "Patients' Admission Date Filter",
+            "type": "ir.actions.act_window",
+            "res_model": "hms.patients",
+            "view_mode": "tree,form",
+            "domain": [("id", "in", filtered_dates_ids)],
+        }

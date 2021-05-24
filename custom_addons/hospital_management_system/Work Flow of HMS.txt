@@ -1,5 +1,20 @@
+----------------------- Day Three Tasks -----------------------
+[The given tasks are suggestion that gives us enough to practice the topics we know but need to brush up, however, you can code/design as you please though! Just Make Sure you're practicing the related topic!]
+
+
+# Search, Filter (using Domain):
+	Implement search and filters which make sense according to you.
+	E.g: implement search using patient's name, address etc, filter on age/due bill.
+
+# Button/Menu/Submenu:
+	Implement a menu/Submenu [on the menu bar] or a button [on the form header] that'll trigger a popup form [transient model]
+
+# Transient Model [popup form] + Domain + ORM/SQL:
+	Patient : Implement Transient Model to filter patients on admission dates. Use ORM and/or SQL to access databases. Use Domain as needed.
+
+
 ----------------------- Day Two Tasks -----------------------
-[The given fields/relations are suggestion that we've talked on, you can do as you please though! Just Make Sure you're practicing the related topic!]
+[The given tasks are suggestion that gives us enough to practice the topics we know but need to brush up, however, you can code/design as you please though! Just Make Sure you're practicing the related topic!]
 
 # Relational Field :
 	Doctor's form: patients under doctor (o2m)
@@ -21,7 +36,7 @@
 
 
 ----------------------- Day One Tasks -----------------------
-[Aim: To Implement Basic Structure and Basic Fields along with Access Rights]
+[The given tasks are suggestion that gives us enough to practice the topics we know but need to brush up, however, you can code/design as you please though! Just Make Sure you're practicing the related topic!]
 
 # Accesss Rights:
 	#Groups:

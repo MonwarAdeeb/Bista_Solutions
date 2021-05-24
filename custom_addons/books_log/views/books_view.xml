@@ -118,7 +118,6 @@
                 <separator/>
                 <filter string="Language" name='group_languages' context="{'group_by':'languages'}" />
 
-
             </search>
         </field>
     </record>s

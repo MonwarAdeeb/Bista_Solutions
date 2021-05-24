@@ -14,6 +14,6 @@ class Medicines(models.Model):
 
     description = fields.Text(string="Description")
 
-    # Relational Field
+    # Relational Field, to see Which Patients are Given a Specific Medicine
     assigned_patients = fields.Many2many(
         "hms.patients", string="Assigned Patients")

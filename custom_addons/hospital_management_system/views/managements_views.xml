@@ -2,6 +2,7 @@
 
 <odoo>
 
+    <!-- Tree View for Managements' Model -->
     <record id="view_managements_tree" model="ir.ui.view">
         <field name="name">hms.managements.tree</field>
         <field name="model">hms.managements</field>
@@ -15,6 +16,7 @@
         </field>
     </record>
 
+    <!-- Form View for Managements' Model -->
     <record id="view_managements_form" model="ir.ui.view">
         <field name="name">hms.managements.form</field>
         <field name="model">hms.managements</field>
@@ -41,6 +43,7 @@
         </field>
     </record>
 
+    <!-- Search View for Managements' Model -->
     <record id="view_hms_managements_search" model="ir.ui.view">
         <field name="name">hms.managements.search</field>
         <field name="model">hms.managements</field>
@@ -55,6 +58,7 @@
         </field>
     </record>
 
+    <!-- Action to Trigger Default Views and Setting Default Officer ID Through Context -->
     <record id="action_hms_managements" model="ir.actions.act_window">
         <field name="name">Managements</field>
         <field name="res_model">hms.managements</field>
@@ -66,6 +70,7 @@
         </field>
     </record>
 
+    <!-- Main Menu of Managements' Model -->
     <menuitem   id="menu_hms_officers"
                 parent="menu_hms"
                 name="Officers"

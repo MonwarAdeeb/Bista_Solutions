@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
-
+    <!-- Tree View for Medicines' Model -->
     <record id="view_medicines_tree" model="ir.ui.view">
         <field name="name">hms.medicines.tree</field>
         <field name="model">hms.medicines</field>
@@ -13,6 +13,7 @@
         </field>
     </record>
 
+    <!-- Form View for Medicines' Model -->
     <record id="view_medicines_form" model="ir.ui.view">
         <field name="name">hms.medicines.form</field>
         <field name="model">hms.medicines</field>
@@ -31,6 +32,7 @@
         </field>
     </record>
 
+    <!-- Search View for Medicines' Model -->
     <record id="view_hms_medicines_search" model="ir.ui.view">
         <field name="name">hms.medicines.search</field>
         <field name="model">hms.medicines</field>
@@ -43,13 +45,14 @@
         </field>
     </record>
 
+    <!-- Action to Trigger Medicines' Model's Default Views -->
     <record id="action_hms_medicines" model="ir.actions.act_window">
         <field name="name">Medicines</field>
         <field name="res_model">hms.medicines</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-
+    <!-- Main Menu of Medicines' Model -->
     <menuitem   id="menu_hms_medicines"
                 parent="menu_hms"
                 name="Medicines"

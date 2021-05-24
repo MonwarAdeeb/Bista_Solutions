@@ -2,6 +2,7 @@
 
 <odoo>
 
+    <!-- Tree View for Doctors' Model -->
     <record id="view_doctors_tree" model="ir.ui.view">
         <field name="name">hms.doctors.tree</field>
         <field name="model">hms.doctors</field>
@@ -15,6 +16,7 @@
         </field>
     </record>
 
+    <!-- Form View for Doctors' Model -->
     <record id="view_doctors_form" model="ir.ui.view">
         <field name="name">hms.doctors.form</field>
         <field name="model">hms.doctors</field>
@@ -42,6 +44,7 @@
         </field>
     </record>
 
+    <!-- Search View for Doctors' Model -->
     <record id="view_hms_doctors_search" model="ir.ui.view">
         <field name="name">hms.doctors.search</field>
         <field name="model">hms.doctors</field>
@@ -57,6 +60,7 @@
         </field>
     </record>
 
+    <!-- Action to Trigger Default Views for Doctors' Model and Setting Default Doctor's ID Through Context-->
     <record id="action_hms_doctors" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="res_model">hms.doctors</field>
@@ -68,9 +72,12 @@
         </field>
     </record>
 
+    <!-- Main Menu of All To Show Hospital Management System -->
     <menuitem   id="menu_hms"
                 name="Hospital Management System"
                 sequence="1"/>
+                
+    <!-- Main Menu to Show Doctors' Model -->
     <menuitem   id="menu_hms_doctors"
                 parent="menu_hms"
                 name="Doctors"

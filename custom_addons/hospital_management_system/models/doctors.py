@@ -18,6 +18,6 @@ class Doctors(models.Model):
     contact_number = fields.Char(string="Contact Number")
     email = fields.Char(string="Email")
 
-    # Relational Field
+    # Relational Field to See Assigned Patients
     assigned_patient = fields.One2many(
         "hms.patients", "assigned_doctor", string="Assigned Patient")

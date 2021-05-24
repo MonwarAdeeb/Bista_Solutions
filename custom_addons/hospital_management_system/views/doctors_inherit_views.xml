@@ -2,6 +2,7 @@
 
 <odoo>
 
+    <!-- Inherited View to Add 'Speciality' Field to Doctors' Default Form View -->
     <record id="view_doctors_form_inherit" model="ir.ui.view">
         <field name="name">hms.doctors.form.inherit</field>
         <field name="model">hms.doctors</field>

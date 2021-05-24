@@ -2,6 +2,7 @@
 
 <odoo>
 
+    <!-- Patients' Tree View -->
     <record id="view_patients_tree" model="ir.ui.view">
         <field name="name">hms.patients.tree</field>
         <field name="model">hms.patients</field>
@@ -15,6 +16,7 @@
         </field>
     </record>
 
+    <!-- Patients' Form View -->
     <record id="view_paients_form" model="ir.ui.view">
         <field name="name">hms.patients.form</field>
         <field name="model">hms.patients</field>
@@ -51,6 +53,7 @@
         </field>
     </record>
 
+    <!-- Patients' Search View --> 
     <record id="view_hms_patients_search" model="ir.ui.view">
         <field name="name">hms.patients.search</field>
         <field name="model">hms.patients</field>
@@ -76,11 +79,13 @@
         </field>
     </record>
 
+    <!-- Patients' Menu which has Submenus -->
     <menuitem   id="menu_hms_patients"
                 parent="menu_hms"
                 name="Patients"
                 sequence="3"/> 
 
+    <!-- Action to Trigger Default Tree and Form View and Setting Default Patient's ID Through Context -->
     <record id="action_hms_patients" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hms.patients</field>
@@ -92,13 +97,14 @@
         </field>
     </record>
 
+    <!-- Sub Menu Under Patient Menu to Show Patients' List -->
     <menuitem   id="menu_hms_patients_show"
                 parent="menu_hms_patients"
                 name="Patients' List"
                 action="action_hms_patients"
                 sequence="1"/> 
 
-
+    <!-- View to Show Transient Model's Popup Form -->
     <record id="view_hms_patients_admission_dates_filter" model="ir.ui.view">
         <field name="name">hms.patients.adnission.dates.filter.form</field>
         <field name="model">hms.patients.admission.dates.filter</field>
@@ -117,6 +123,7 @@
         </field>
     </record>
 
+    <!-- Action to Trigger the Transient Model's Popup Form -->
     <record id="action_patients_admission_dates_filter" model="ir.actions.act_window">
         <field name="name">Patients' Admission Date Filter</field>
         <field name="res_model">hms.patients.admission.dates.filter</field>
@@ -124,6 +131,7 @@
         <field name="target">new</field>
     </record>
 
+    <!-- Sub Menu Under Patient Menu to Show Patients' Filter Menu -->
     <menuitem   id="menu_hms_patients_admission_dates_filter"
                 parent="menu_hms_patients"
                 name="Admission Dates Filter"

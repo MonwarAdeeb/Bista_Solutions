@@ -42,6 +42,21 @@
         </field>
     </record>
 
+    <record id="view_hms_doctors_search" model="ir.ui.view">
+        <field name="name">hms.doctors.search</field>
+        <field name="model">hms.doctors</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="doctor_id"/>
+                <field name="date_of_joining"/>
+                <field name="contact_number"/>
+                <field name="email"/>
+                <field name="assigned_patient"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_hms_doctors" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="res_model">hms.doctors</field>

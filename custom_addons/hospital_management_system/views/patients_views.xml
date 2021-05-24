@@ -31,6 +31,7 @@
 
                     <group>
                         <field name="name"/>
+                        <field name="age"/>
                         <field name="patient_id"/>
                         <field name="date_of_admission"/>
                         <field name="assigned_doctor"/>
@@ -50,6 +51,36 @@
         </field>
     </record>
 
+    <record id="view_hms_patients_search" model="ir.ui.view">
+        <field name="name">hms.patients.search</field>
+        <field name="model">hms.patients</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="patient_id"/>
+                <field name="date_of_admission"/>
+                <field name="assigned_doctor"/>
+                <field name="assigned_medicines"/>
+                <field name="symptoms"/>
+                <field name="diagnosis"/>
+                <field name="bill"/>
+                <field name="address"/>
+                <field name="contact_number"/>
+                <field name="email"/>
+            </search>
+
+            <filter string="Senior Patients" name="filter_senior_patients" domain="[('age', '&gt;=', 60)]"/>
+
+            <filter string="Admission Date" name="group_by_date" context="{'group_by':'date_of_admission'}"/>
+        </field>
+    </record>
+
+    <menuitem   id="menu_hms_patients"
+                parent="menu_hms"
+                name="Patients"
+                sequence="3"/> 
+
     <record id="action_hms_patients" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hms.patients</field>
@@ -61,10 +92,42 @@
         </field>
     </record>
 
-    <menuitem   id="menu_hms_patients"
-                parent="menu_hms"
-                name="Patients"
+    <menuitem   id="menu_hms_patients_show"
+                parent="menu_hms_patients"
+                name="Patients' List"
                 action="action_hms_patients"
-                sequence="3"/>
+                sequence="1"/> 
+
+
+    <!-- <record id="view_hms_patients_admission_dates_filter" model="ir.ui.view">
+        <field name="name">hms.patients.adnission.dates.filter.form</field>
+        <field name="model">hms.patients.admission.dates.filter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Filter Admission Dates" type="object" name="filter_patient_admission_dates" class="btn btn-primarry"/>
+                </footer>
+            </form>
+        </field>
+    </record> -->
+
+    <record id="action_patients_admission_dates_filter" model="ir.actions.act_window">
+        <field name="name">Patients' Admission Date Filter</field>
+        <field name="res_model">hms.patients.admission.dates.filter</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem   id="menu_hms_patients_admission_dates_filter"
+                parent="menu_hms_patients"
+                name="Admission Dates Filter"
+                action="action_patients_admission_dates_filter"
+                sequence="2"/>
        
 </odoo>

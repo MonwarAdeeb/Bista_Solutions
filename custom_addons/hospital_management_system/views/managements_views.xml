@@ -41,6 +41,20 @@
         </field>
     </record>
 
+    <record id="view_hms_managements_search" model="ir.ui.view">
+        <field name="name">hms.managements.search</field>
+        <field name="model">hms.managements</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="officer_id"/>
+                <field name="date_of_joining"/>
+                <field name="contact_number"/>
+                <field name="email"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_hms_managements" model="ir.actions.act_window">
         <field name="name">Managements</field>
         <field name="res_model">hms.managements</field>

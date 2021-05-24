@@ -13,6 +13,7 @@ class Patients(models.Model):
     photo = fields.Binary(string="Photo", attachment=True)
     name = fields.Char(string="Patient's Name", required=True,
                        help="Enter Your Name Here")
+    age = fields.Integer(string="Age", required=True)
     patient_id = fields.Char(string="Patient ID", required=True)
     date_of_admission = fields.Datetime(
         string="Date of Admission", default=datetime.now())
@@ -69,3 +70,13 @@ class Patients(models.Model):
         if 'address' in values.keys() and not values['address']:
             values['address'] = "Address Was Deleted"
         return super(Patients, self).write(values)
+
+
+class PatientsAdmissionDatesFilter(models.TransientModel):
+    _name = "hms.patients.admission.dates.filter"
+    _description = "Features for Filtering Patient's Admission Date"
+
+    from_date = fields.Date(
+        string='Date From', default=datetime.today())
+    to_date = fields.Date(
+        string='Date To', default=datetime.today())

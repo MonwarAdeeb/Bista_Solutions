@@ -31,6 +31,18 @@
         </field>
     </record>
 
+    <record id="view_hms_medicines_search" model="ir.ui.view">
+        <field name="name">hms.medicines.search</field>
+        <field name="model">hms.medicines</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="assigned_patients"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_hms_medicines" model="ir.actions.act_window">
         <field name="name">Medicines</field>
         <field name="res_model">hms.medicines</field>

@@ -20,6 +20,7 @@
         'views/product_brand_view.xml',
         'views/dealer_name_view.xml',
         'views/products_view.xml',
+        'report/books_report.xml',
     ],
     'installable': True,
     'application': True,

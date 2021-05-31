@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="action_purchase_custom_report" model="ir.actions.report">
+        <field name="name">Purchase Custom Report</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">books_log.purchase_custom_report</field>
+        <field name="report_file">books_log.purchase_custom_report</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="purchase_custom_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe-structure"/>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="text-left">
+                            <h2>Purchase Order #<span t-field="doc.name"/></h2>
+                        </div>
+
+                        <div class="container">
+                            <div id="informations" class="row-mt32-mb32">
+                                <div id="vendor_informations" class="row mt32 mb32">
+                                    <div class="col-4 bm-2">
+                                        <strong>Vendor:</strong>
+                                        <p> <t t-esc="doc.partner_id.name"/> </p>
+                                    </div>
+                                    <div class="col-4 bm-2" style="margin-left:180px;">
+                                        <strong>Confirmation Date:</strong>
+                                        <p> <t t-esc="doc.date_approve"/> </p>
+                                    </div>                                    
+                                </div>
+                                <div id="date_informations" class="row mt32 mb32">
+                                    <div class="col-4 bm-2">
+                                        <strong>Purchase Representative:</strong>
+                                        <p> <t t-esc="doc.user_id.name"/> </p>
+                                    </div>
+                                    <div class="col-4 bm-2" style="margin-left:180px;">
+                                        <strong>Receipt Date:</strong>
+                                        <p> <t t-esc="doc.date_planned"/> </p>
+                                    </div>
+                                </div>                    
+                            </div>
+                        </div>
+
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <th name="th_product"><strong>Product</strong></th>
+                                <th name="th_description"><strong>Description</strong></th>
+                                <th name="th_brand"><strong>Brand</strong></th>
+                                <th name="th_quantity"><strong>Quantity</strong></th>
+                                <th name="th_price_unit"><strong>Unit Price</strong></th>
+                                <th name="th_amount"><strong>Subtotal</strong></th>
+                            </thead>
+
+                            <tbody>
+                                <t t-set="current_subtotal" t-value="0"/>
+                                <t t-foreach="doc.order_line" t-as="line">
+                                    <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"/>
+
+                                    <tr>
+                                        <td> <t t-esc="line.product_id.name"/> </td>
+                                        <td> <t t-esc="line.name"/> </td>
+                                        <td> <t t-esc="line.brand_id.brand"/> </td>
+                                        <td> <t t-esc="line.product_qty"/> </td>
+                                        <td> <t t-esc="line.price_unit"/> </td>
+                                        <td> <t t-esc="line.price_subtotal"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> </td>
+                                    </tr>
+
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div id="total" class="row justify-content-end">
+                            <div class="col-4">
+                                <table class="table table-sm">
+                                    <tr class="border-black">
+                                        <td name="td_total_amount_label"><strong>Total</strong></td>
+                                        <td class="text-center">
+                                            <span t-esc="doc.amount_untaxed"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

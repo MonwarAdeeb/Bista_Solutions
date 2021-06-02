@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="requisition_users" model="ir.module.category">
+        <field name="name">Requisition</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="group_requisition_employee" model="res.groups">
+        <field name="name">Employee</field>
+        <field name="category_id" ref="requisition.requisition_users"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_requisition_hr" model="res.groups">
+        <field name="name">HR Admin</field>
+        <field name="category_id" ref="requisition.requisition_users"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_requisition_hr_super" model="res.groups">
+        <field name="name">HR Super Admin</field>
+        <field name="category_id" ref="requisition.requisition_users"/>
+        <field name="implied_ids" eval="[(4, ref('requisition.group_requisition_employee')), (4, ref('requisition.group_requisition_hr'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

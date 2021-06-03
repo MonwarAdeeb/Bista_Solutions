@@ -14,7 +14,7 @@ class Reqisition(models.Model):
     date = fields.Date(string="Date of Requisition Request",
                        default=datetime.today(), readonly=False)
     state = fields.Selection([("draft", "Draft"), ("confirm", "Confirmed"), ("approve", "Approved"),
-                              ("ready", "Ready"), ("receive", "Received")], string="state", default="draft")
+                              ("ready", "Ready"), ("receive", "Received")], string="State", default="draft")
     requisition_line = fields.One2many(
         'requisition.requisition.line', 'requisition_id', string='Requisition Line')
 

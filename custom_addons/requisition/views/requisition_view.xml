@@ -40,14 +40,12 @@
 
                     <notebook>
                         <page string="Products">
-                            <field name="requisition_line">
+                            <field name="requisition_line" attrs="{
+                                'readonly': [('state', 'in', ('confirm', 'approve', 'ready', 'receive'))]
+                            }">
                                 <tree editable="bottom">
-                                    <field name="products" attrs="{
-                                        'readonly': [('parent.state', 'in', ('confirm', 'approve', 'ready', 'receive'))]
-                                    }"/>
-                                    <field name="quantity" attrs="{
-                                        'readonly': [('parent.state', 'in', ('confirm', 'approve', 'ready', 'receive'))]
-                                    }"/>
+                                    <field name="products"/>
+                                    <field name="quantity"/>
                                 </tree>
                             </field>
                         </page>

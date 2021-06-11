@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_purchase_order_filter" model="ir.ui.view">
+        <field name="name">bista.test.purchase.order.form</field>
+        <field name="model">purchase.order.filter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customers" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="View Purchase Orders" type="object" name="filter_purchase_order" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_order_filter" model="ir.actions.act_window">
+        <field name="name">Filter Purchase Orders</field>
+        <field name="res_model">purchase.order.filter</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem   id="menu_purchase_order_filter"
+                parent="purchase.menu_procurement_management"
+                name="Filter Purchase Orders"
+                action="action_purchase_order_filter"
+                sequence="1"/>
+</odoo>

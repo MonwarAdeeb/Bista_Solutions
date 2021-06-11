@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_user,access_purchase_user,bista_test.model_test_product_group,bista_test.group_purchase_user,1,0,0,0
+access_inventory_user,access_inventory_user,bista_test.model_test_product_group,bista_test.group_inventory_user,1,1,1,0
+access_inventory_administrator,access_inventory_administrator,bista_test.model_test_product_group,bista_test.group_inventory_admin,1,1,1,1
+
+access_pof_purchase_user,access_pof_purchase_user,bista_test.model_purchase_order_filter,bista_test.group_purchase_user,1,1,1,1
+access_pof_inventory_user,access_pof_inventory_user,bista_test.model_purchase_order_filter,bista_test.group_inventory_user,1,1,1,1
+access_pof_inventory_administrator,access_pof_inventory_administrator,bista_test.model_purchase_order_filter,bista_test.group_inventory_admin,1,1,1,1

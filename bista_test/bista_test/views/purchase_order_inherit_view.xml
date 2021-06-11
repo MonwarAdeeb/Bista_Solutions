@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    
+    <record id="view_purchase_order_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="after">
+                    <field name="product_group"/>
+            </xpath>
+
+            <xpath expr="//field[@name='product_group']" position="before">
+                <field name="active_group_filter"/>
+            </xpath>
+
+            <xpath expr="//field[@name='product_group']" position="attributes">
+                <attribute name="attrs">{'invisible':[('active_group_filter','=',False)], 'required':[(True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('groups', '=', parent.product_group)]</attribute>ss
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="domain">[('is_company', '=', False)]</attribute>    
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

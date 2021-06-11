@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_group_users" model="ir.module.category">
+        <field name="name">Product Group</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="group_purchase_user" model="res.groups">
+        <field name="name">Purchase User</field>
+        <field name="category_id" ref="bista_test.product_group_users"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_inventory_user" model="res.groups">
+        <field name="name">Inventory User</field>
+        <field name="category_id" ref="bista_test.product_group_users"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_inventory_admin" model="res.groups">
+        <field name="name">Inventory Administrator</field>
+        <field name="category_id" ref="bista_test.product_group_users"/>
+        <field name="implied_ids" eval="[(4, ref('bista_test.group_purchase_user')), (4, ref('bista_test.group_inventory_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

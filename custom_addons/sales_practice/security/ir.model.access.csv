@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_all_branches,access_all_branches,sales_practice.model_sp_branches,sales_practice.group_sales_practice,1,1,1,1
+access_all_banks,access_all_banks,sales_practice.model_sp_bank_names,sales_practice.group_sales_practice,1,1,1,1

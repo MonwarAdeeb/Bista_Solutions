@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bank_names_tree" model="ir.ui.view">
+        <field name="name">banks.tree</field>
+        <field name="model">sp.bank_names</field>
+        <field name="arch" type="xml">
+            <tree string="Bank List">
+                <field name="bank_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bank_form" model="ir.ui.view">
+        <field name="name">bank.form</field>
+        <field name="model">sp.bank_names</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="bank_name"/>
+                        <field name="branches" widget="one2many_tags">
+                            <tree>
+                                <field name="branch_name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bank_names" model="ir.actions.act_window">
+        <field name="name">Bank Names</field>
+        <field name="res_model">sp.bank_names</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_branches_tree" model="ir.ui.view">
+        <field name="name">branches.tree</field>
+        <field name="model">sp.branches</field>
+        <field name="arch" type="xml">
+            <tree string="Branch List">
+                <field name="branch_name"/>
+                <field name="bank"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_branches_form" model="ir.ui.view">
+        <field name="name">branches.form</field>
+        <field name="model">sp.branches</field>
+        <field name="arch" type="xml">
+            <form string="Branch Details">
+                <sheet>
+                    <group>
+                    <field name="branch_name"/>
+                    <field name="bank"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_branches" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="res_model">sp.branches</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="banks_menu"
+        name="Banks"
+        sequence="1"/>
+
+    <menuitem
+        id="bank_names_menu"
+        name="Banks"
+        action="action_bank_names"
+        parent="banks_menu"
+        sequence="1"/>
+
+        <menuitem
+        id="branches_menu"
+        name="Branches"
+        action="action_branches"
+        parent="banks_menu"
+        sequence="2"/>
+
+</odoo>

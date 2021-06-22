@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_bista_trainee_role_tree" model="ir.ui.view">
+        <field name="name">bista.trainee.role.tree</field>
+        <field name="model">bista.trainee.role</field>
+        <field name="arch" type="xml">
+            <tree string="Designation/Role List" editable='top'>
+                <field name="designation"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_bista_trainee_role" model="ir.actions.act_window">
+        <field name="name">Bista Designation/Role</field>
+        <field name="res_model">bista.trainee.role</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem   id="menu_bista_trainee_role" parent ="menu_bista_trainee_root"
+                action="action_bista_trainee_role" name='Designation/Role' sequence='10'/>
+
+
+</odoo>

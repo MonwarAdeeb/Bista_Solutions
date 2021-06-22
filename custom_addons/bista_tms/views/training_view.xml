@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_bista_training_subject_tree" model="ir.ui.view">
+        <field name="name">bista_training.subject.tree</field>
+        <field name="model">bista.training.subject</field>
+        <field name="arch" type="xml">
+            <tree string="Training Subjects">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="topic"/>
+                <field name="trainers"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="view_bista_training_subject_form" model="ir.ui.view">
+        <field name="name">bista_training.subject.form</field>
+        <field name="model">bista.training.subject</field>
+        <field name="arch" type="xml">
+            <form string="Training Subject Details">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description" widget="html"/>
+                        <field name="trainers"/>
+                        <field name="topic" widget="one2many_tags">
+                            <tree>
+                                <field name="name"/>
+                                <field name="subject"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bista_training_topic_tree" model="ir.ui.view">
+        <field name="name">bista_training.topic.tree</field>
+        <field name="model">bista.training.topic</field>
+        <field name="arch" type="xml">
+            <tree string="Trainee Topics">
+                <field name="name"/>
+                <field name="subject"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="view_bista_training_topic_form" model="ir.ui.view">
+        <field name="name">bista_training.topic.form</field>
+        <field name="model">bista.training.topic</field>
+        <field name="arch" type="xml">
+            <form string="Trainee topic">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="subject"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bista_training_stage_tree" model="ir.ui.view">
+        <field name="name">bista_training.stage.tree</field>
+        <field name="model">bista.training.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Trainee Stages">
+                <field name="name"/>
+                <field name="available_batch"/>
+                <field name="available_training_record"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="view_bista_training_stage_form" model="ir.ui.view">
+        <field name="name">bista_training.stage.form</field>
+        <field name="model">bista.training.stage</field>
+        <field name="arch" type="xml">
+            <form string="Trainee Stage">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="available_batch"/>
+                        <field name="available_training_record"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_training_subject" model="ir.actions.act_window">
+        <field name="name">Training Subject</field>
+        <field name="res_model">bista.training.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_bista_training_topic" model="ir.actions.act_window">
+        <field name="name">Training Topic</field>
+        <field name="res_model">bista.training.topic</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_bista_training_stage" model="ir.actions.act_window">
+        <field name="name">Training Stage</field>
+        <field name="res_model">bista.training.stage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem   id="menu_bista_training_subject" parent ="menu_bista_tms"
+                action="action_bista_training_subject" name='Subjects' sequence='3'/>
+
+    <menuitem   id="menu_bista_training_topic" parent ="menu_bista_tms"
+                action="action_bista_training_topic" name='Topics' sequence='4'/>
+
+    <menuitem   id="menu_bista_training_stage" parent ="menu_bista_tms"
+                action="action_bista_training_stage" name='Stages' sequence='5'/>
+
+
+</odoo>

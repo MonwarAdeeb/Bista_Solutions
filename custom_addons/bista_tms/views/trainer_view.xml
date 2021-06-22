@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_bista_trainer_tree" model="ir.ui.view">
+        <field name="name">bista_trainer.tree</field>
+        <field name="model">bista.trainer</field>
+        <field name="arch" type="xml">
+            <tree string="Trainer List">
+                <field name="name"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="view_bista_trainer_form" model="ir.ui.view">
+        <field name="name">bista_trainer.form</field>
+        <field name="model">bista.trainer</field>
+        <field name="arch" type="xml">
+            <form string="Trainer Details">
+                <sheet>
+                    <group>
+                        <field name="profile_image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_trainer" model="ir.actions.act_window">
+        <field name="name">Bista Trainer</field>
+        <field name="res_model">bista.trainer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem   id="menu_bista_trainer" parent ="menu_bista_tms"
+                action="action_bista_trainer" name='Trainers' sequence='3'/>
+
+</odoo>

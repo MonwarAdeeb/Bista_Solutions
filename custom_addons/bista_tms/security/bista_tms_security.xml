@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="bista_tms_users" model="ir.module.category">
+        <field name="name">Lithin Sir Practice</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="group_ls_trainee" model="res.groups">
+        <field name="name">Trainee</field>
+        <field name="category_id" ref="bista_tms.bista_tms_users"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_ls_trainer" model="res.groups">
+        <field name="name">Trainer</field>
+        <field name="category_id" ref="bista_tms.bista_tms_users"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_ls_training_coordinator" model="res.groups">
+        <field name="name">Training Coordinator</field>
+        <field name="category_id" ref="bista_tms.bista_tms_users"/>
+        <field name="implied_ids" eval="[(4, ref('bista_tms.group_ls_trainee')), (4, ref('bista_tms.group_ls_trainer'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

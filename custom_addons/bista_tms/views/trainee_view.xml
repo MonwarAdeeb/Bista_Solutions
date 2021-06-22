@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_bista_trainee_tree" model="ir.ui.view">
+        <field name="name">bista_trainee.tree</field>
+        <field name="model">bista.trainee</field>
+        <field name="arch" type="xml">
+            <tree string="Trainee List">
+                <field name="name"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="trainee_id"/>
+                <field name="email"/>
+                <field name="gender"/>
+                <field name="date_of_birth"/>
+                <field name="location"/>
+                <field name="designation"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="view_bista_trainee_form" model="ir.ui.view">
+        <field name="name">bista_trainee.form</field>
+        <field name="model">bista.trainee</field>
+        <field name="arch" type="xml">
+            <form string="Trainee Details">
+                <sheet>
+                    <group>
+                        <field name="profile_image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="trainee_id"/>
+                            <field name="emp_code"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                            <field name="date_of_birth"/>
+                            <field name="date_of_joining"/>
+                            <field name="location"/>
+                            <field name="designation"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bista_trainee_kanban" model="ir.ui.view">
+        <field name="name">bista_trainee.kanban</field>
+        <field name="model">bista.trainee</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="first_name" />
+                <field name="trainee_id" />
+                <field name="emp_code" />
+                <field name="email" />
+                <field name="location" />               
+                <field name="designation" /> 
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li><b><field name="name" /></b></li>
+                                    <li><field name="trainee_id" /></li>
+                                    <li><field name="designation" /></li>
+                                    <li><field name="location" /></li>                               
+                                </ul>
+                            </div>
+                        </div>                   
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_bista_trainee_search" model="ir.ui.view">
+        <field name="name">bista_trainee.search</field>
+        <field name="model">bista.trainee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="trainee_id"/>
+                <field name="emp_code"/>
+                <field name="email"/>
+                <field name="location"/>
+                <field name="designation"/>
+
+                <filter string="Location" name='group_location' context="{'group_by':'location'}" />
+                <filter string="Designation" name='group_designation' context="{'group_by':'designation'}" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bista_trainee" model="ir.actions.act_window">
+        <field name="name">Bista Trainee</field>
+        <field name="res_model">bista.trainee</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem   id="menu_bista_tms" name="Bista Training Management System" sequence='1'/>
+    <menuitem   id="menu_bista_trainee_root" parent ="menu_bista_tms"
+                name='Trainees' sequence='2'/>
+    <menuitem   id="menu_bista_trainee" parent ="menu_bista_trainee_root"
+                action="action_bista_trainee" name='Trainees' sequence='1'/>
+                
+
+</odoo>

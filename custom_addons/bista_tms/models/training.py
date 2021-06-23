@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-from datetime import datetime
-import uuid
 
 
 class TrainingSubjects(models.Model):

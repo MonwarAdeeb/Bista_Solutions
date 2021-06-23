@@ -37,6 +37,8 @@ class Trainee(models.Model):
     @api.depends('first_name', 'last_name')
     def _get_name(self):
         for record in self:
+            if not record.first_name:
+                record.first_name = ''
             if record.last_name:
                 record.name = record.first_name + ' ' + record.last_name
             else:

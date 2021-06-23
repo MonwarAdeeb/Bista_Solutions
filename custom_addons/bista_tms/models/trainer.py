@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-from datetime import datetime
 
 
 class Trainer(models.Model):
@@ -22,24 +20,3 @@ class Trainer(models.Model):
                 record.name = record.first_name + ' ' + record.last_name
             else:
                 record.name = record.first_name
-
-
-class Location(models.Model):
-    _name = "bista.location"
-    _description = "Bista Training Management System - Locations"
-    _rec_name = "location"
-
-    location = fields.Char(string="Location")
-    street = fields.Char(string="Street")
-    city = fields.Char(string="City")
-    state = fields.Char(string="State")
-    country = fields.Char(string="Country", required=True)
-
-
-class Designation(models.Model):
-    _name = "bista.trainee.role"
-    _description = "Bista Training Management System - Designations"
-    _rec_name = "designation"
-
-    designation = fields.Char(string="Designation")
-    sequence = fields.Integer(string="Sequence")

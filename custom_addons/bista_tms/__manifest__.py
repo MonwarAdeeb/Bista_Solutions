@@ -12,8 +12,8 @@
 
         'views/trainee_view.xml',
         'views/trainer_view.xml',
+        'views/designation_view.xml',
         'views/location_view.xml',
-        'views/trainee_role_view.xml',
         'views/training_view.xml',
 
         # 'views/_view.xml',

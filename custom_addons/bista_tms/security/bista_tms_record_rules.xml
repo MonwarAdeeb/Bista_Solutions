@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="record_rule_bista_trainer_note" model="ir.rule">
+        <field name="name">Record Rules for Trainer Note</field>
+        <field name="model_id" ref="model_bista_trainer_note"/>
+        <field name="domain_force">[('added_by', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_ls_trainer'))]"/>
+        <field name="perm_read" eval='1'/>
+        <field name="perm_create" eval='1'/>
+        <field name="perm_write" eval='1'/>
+        <field name="perm_unlink" eval='1'/>
+    </record>
+
+</odoo>

@@ -20,3 +20,15 @@ class Trainer(models.Model):
                 record.name = record.first_name + ' ' + record.last_name
             else:
                 record.name = record.first_name
+
+
+class TrainerNotes(models.Model):
+    _name = "bista.trainer.note"
+    _description = "Bista Training Management System - Trainer Notes"
+    _rec_name = "subject"
+
+    added_by = fields.Many2one('res.users', string="Added By")
+    subject = fields.Char(string="Subject", required=True)
+    date = fields.Date(
+        string="Date", default=lambda self: fields.datetime.today())
+    note = fields.Char(string="Note")

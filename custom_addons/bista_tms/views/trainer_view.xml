@@ -40,7 +40,47 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem   id="menu_bista_trainer" parent ="menu_bista_tms"
-                action="action_bista_trainer" name='Trainers' sequence='3'/>
+    <record id="view_bista_trainer_note_tree" model="ir.ui.view">
+        <field name="name">bista_trainer.note.tree</field>
+        <field name="model">bista.trainer.note</field>
+        <field name="arch" type="xml">
+            <tree string="Trainer Notes">
+                <field name="subject"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="view_bista_trainer_note_form" model="ir.ui.view">
+        <field name="name">bista_trainer.note.form</field>
+        <field name="model">bista.trainer.note</field>
+        <field name="arch" type="xml">
+            <form string="Trainer Details">
+                <sheet>
+                    <group>
+                        <field name="added_by"/>
+                        <field name="subject"/>
+                        <field name="date"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_trainer_note" model="ir.actions.act_window">
+        <field name="name">Bista Trainer Note</field>
+        <field name="res_model">bista.trainer.note</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem   id="menu_bista_trainer_root" parent ="menu_bista_tms"
+                name='Trainers' sequence='2'/>
+
+    <menuitem   id="menu_bista_trainer" parent ="menu_bista_trainer_root"
+                action="action_bista_trainer" name='Trainers' sequence='1'/>
+    <menuitem   id="menu_bista_trainer_notes" parent ="menu_bista_trainer_root"
+                action="action_bista_trainer_note" name='Trainer Note' sequence='2'/>
 
 </odoo>

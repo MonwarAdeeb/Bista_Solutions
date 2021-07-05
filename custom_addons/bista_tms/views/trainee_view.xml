@@ -7,6 +7,7 @@
         <field name="model">bista.trainee</field>
         <field name="arch" type="xml">
             <tree string="Trainee List">
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="first_name"/>
                 <field name="last_name"/>
@@ -27,28 +28,89 @@
         <field name="model">bista.trainee</field>
         <field name="arch" type="xml">
             <form string="Trainee Details">
+                <header>
+                    <button string="Confirm as Employee" states="unconfirmed" type="object" name="action_create_employee" class="btn btn-primary"/>
+                </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence"/>
+                        </h1>
+                    </div>
                     <group>
                         <field name="profile_image" widget="image" class="oe_avatar"/>
                         <group>
-                            <field name="name"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <field name="state" invisible="1"/>
                             <field name="first_name"/>
                             <field name="last_name"/>
                             <field name="trainee_id"/>
-                            <field name="emp_code"/>
-                            <field name="email"/>
-                            <field name="gender"/>
-                            <field name="date_of_birth"/>
-                            <field name="date_of_joining"/>
-                            <field name="location"/>
-                            <field name="designation"/>
+                            <field name="emp_code"/>                
                             <field name="status"/>
+                        </group>
+
+                        <separator/>
+
+                        <group>
+                            <notebook>
+                                <page string="Personal Details">
+                                    <pre>
+                                        <label for="email" string="Email: "/>
+                                        <field name="email"/>
+                                    </pre>
+                                    <pre>
+                                        <label for="gender" string="Gender: "/>
+                                        <field name="gender"/>
+                                    </pre>
+                                    <pre>
+                                        <label for="date_of_birth" string="Date of Birth: "/>
+                                        <field name="date_of_birth"/>
+                                    </pre>
+                                </page>
+                                <page string="More Details">
+                                    <pre>
+                                        <label for="date_of_joining" string="Date of Joining: "/>
+                                        <field name="date_of_joining"/>
+                                    </pre>
+                                    <pre>
+                                        <label for="location" string="Location: "/>
+                                        <field name="location"/>
+                                    </pre>
+                                    <pre>
+                                        <label for="designation" string="Designation: "/>
+                                        <field name="designation"/>
+                                    </pre>
+                                </page>
+                            </notebook>
                         </group>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget='mail_followers'/>
+                    <field name="activity_ids" widget='mail_activity'/>
+                    <field name="message_ids" widget='mail_thread' options="{'post_refresh': 'recipients'}"/>
+                </div>
             </form>
         </field>
     </record>
+
+
+    <!-- <record id="trainee_view_form_inherit_mail" model="ir.ui.view">
+        <field name="name">trainee.view.form.inherit.mail</field>
+        <field name="model">bista.trainee</field>
+        <field name="inherit_id" ref="bista_tms.view_bista_trainee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </xpath>
+        </field>
+    </record> -->
 
     <record id="view_bista_trainee_kanban" model="ir.ui.view">
         <field name="name">bista_trainee.kanban</field>
@@ -98,13 +160,15 @@
         </field>
     </record>
 
+
     <record id="action_bista_trainee" model="ir.actions.act_window">
         <field name="name">Bista Trainee</field>
         <field name="res_model">bista.trainee</field>
         <field name="view_mode">tree,form,kanban</field>
     </record>
 
-    <menuitem   id="menu_bista_tms" name="Bista Training Management System" sequence='1'/>
+    <menuitem   id="menu_bista_tms" name="Bista Training Management System" sequence='1'
+                web_icon="bista_tms,static/description/icon.png"/>
     <menuitem   id="menu_bista_trainee_root" parent ="menu_bista_tms"
                 name='Trainees' sequence='2'/>
     <menuitem   id="menu_bista_trainee" parent ="menu_bista_trainee_root"

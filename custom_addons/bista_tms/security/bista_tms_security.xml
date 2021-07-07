@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="bista_tms_users" model="ir.module.category">
-        <field name="name">Lithin Sir Practice</field>
+        <field name="name">Training Management</field>
         <field name="sequence">1</field>
     </record>
 

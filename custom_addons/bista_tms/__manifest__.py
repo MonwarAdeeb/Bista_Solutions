@@ -24,9 +24,7 @@
 
         'data/ir_suquence_data.xml',
 
-        # 'views/_view.xml',
-
-        # 'report/_report.xml',
+        'report/bista_tms_report.xml',
     ],
     'installable': True,
     'application': True,

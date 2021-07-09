@@ -22,9 +22,11 @@
         'views/location_view.xml',
         'views/training_view.xml',
 
-        'data/ir_suquence_data.xml',
+        'data/ir_sequence_data.xml',
 
         'report/bista_tms_report.xml',
+
+        'wizard/bista_tms_trainee_filter_wizard.xml',
     ],
     'installable': True,
     'application': True,

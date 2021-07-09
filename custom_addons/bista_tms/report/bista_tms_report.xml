@@ -2,7 +2,7 @@
 
 <odoo>
 
-    <record id="bista_tms_trainee_report" model="ir.actions.report">
+    <record id="action_report_bista_tms_trainee" model="ir.actions.report">
         <field name="name">Print Trainee Details</field>
         <field name="model">bista.trainee</field>
         <field name="report_type">qweb-html</field>
@@ -11,6 +11,15 @@
         <field name="binding_model_id" ref="model_bista_trainee"/>
         <field name="binding_type">report</field>        
     </record>
+
+    <!-- <report
+        id="action_report_bista_tms_trainee"
+        model="ir.actions.report"
+        string="Filtered Trainees' Details"
+        report_type="qweb-html"
+        name="bista_tms.trainee_report_document"
+        file="bista_tms.trainee_report_document"
+    /> -->
 
     <template id="trainee_report_document">
         <t t-call="web.html_container">
@@ -24,20 +33,20 @@
                         <div class="offset-md-2 col-md-8 offset" style="margin-top:60px;">
                             <table class="table table-small">
                                 <thead>
+                                    <th>Date of Birth</th>
                                     <th>Trainee ID</th>
                                     <th>Email</th>
                                     <th>Designation</th>
                                     <th>Location</th>
-                                    <th>Status</th>
                                 </thead>
 
                                 <t>
                                     <tr>
+                                        <td> <t t-esc="doc.date_of_birth"/> </td>
                                         <td> <t t-esc="doc.trainee_id"/> </td>
                                         <td> <t t-esc="doc.email"/> </td>
                                         <td> <t t-esc="doc.designation.designation"/> </td>
                                         <td> <t t-esc="doc.location.location"/> </td>
-                                        <td> <t t-esc="doc.status"/> </td>
                                     </tr>
                                 </t>
                             </table>

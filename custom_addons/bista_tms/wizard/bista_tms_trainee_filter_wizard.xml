@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="view_bista_tms_trainee_filter_form" model="ir.ui.view">
+        <field name="name">bista.trainee.filter.form</field>
+        <field name="model">bista.trainee.filter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="view_filtered_trainees" string="View" type="object" class="btn btn-primary"/>
+                    <button name="print_filtered_trainees" string="Print" type="object" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_tms_trainee_filter" model="ir.actions.act_window">
+        <field name="name">Bista Trainee Filter</field>
+        <field name="res_model">bista.trainee.filter</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem   id="menu_bista_trainee_filter"
+                parent ="menu_bista_trainee_root"
+                action="action_bista_tms_trainee_filter"
+                name='Filter Trainees by Birthdate'
+                sequence='100'/>
+</odoo>
